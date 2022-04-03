@@ -1,2 +1,2 @@
 # Bezpieczeństwo informacji - Szyfry
-Homework 
+Należy stworzyć plik 'passwords' w którym będą przechowywane rezultaty porgramów

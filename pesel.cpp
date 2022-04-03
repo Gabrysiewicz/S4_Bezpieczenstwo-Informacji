@@ -15,37 +15,37 @@ int main(){
     int PPPP_c = 10000;
     int K_c = 10;
     ofstream IDs("IDsControl2000.txt");
-    // for(RR = 0; RR < RR_c; RR++){
-    //     for(MM = 0; MM < MM_c; MM++){
-    //         for(DD = 0; DD < DD_c; DD++){
-    //             for(PPPP = 0; PPPP < PPPP_c; PPPP++){
-    //                 PESEL = "";
-    //                 if(RR < 10){
-    //                     PESEL += "0";
-    //                 }
-    //                 PESEL += to_string(RR);
-    //                 if(MM < 10){
-    //                     PESEL += "0";
-    //                 }
-    //                 PESEL += to_string(MM);
-    //                 if(DD < 10){
-    //                     PESEL += "0";
-    //                 }
-    //                 PESEL += to_string(DD);
-    //                 if(PPPP < 10){
-    //                     PESEL += "000";
-    //                 }else if(PPPP < 100){
-    //                     PESEL += "00";
-    //                 }else if(PPPP < 1000){
-    //                     PESEL += "0";
-    //                 }
-    //                 PESEL += to_string(PPPP);
-    //                 PESEL += to_string(control(PESEL));
-    //                 IDs << PESEL << endl;
-    //             }
-    //         }
-    //     }
-    // }
+    for(RR = 0; RR < RR_c; RR++){
+        for(MM = 0; MM < MM_c; MM++){
+            for(DD = 0; DD < DD_c; DD++){
+                for(PPPP = 0; PPPP < PPPP_c; PPPP++){
+                    PESEL = "";
+                    if(RR < 10){
+                        PESEL += "0";
+                    }
+                    PESEL += to_string(RR);
+                    if(MM < 10){
+                        PESEL += "0";
+                    }
+                    PESEL += to_string(MM);
+                    if(DD < 10){
+                        PESEL += "0";
+                    }
+                    PESEL += to_string(DD);
+                    if(PPPP < 10){
+                        PESEL += "000";
+                    }else if(PPPP < 100){
+                        PESEL += "00";
+                    }else if(PPPP < 1000){
+                        PESEL += "0";
+                    }
+                    PESEL += to_string(PPPP);
+                    PESEL += to_string(control(PESEL));
+                    IDs << PESEL << endl;
+                }
+            }
+        }
+    }
     MM_c += 20;
     for(RR = 0; RR < RR_c; RR++){
         for(MM = 20; MM < MM_c; MM++){

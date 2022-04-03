@@ -1,2 +1,2 @@
-# BI-Szyfry
+# Bezpieczeństwo informacji - Szyfry
 Homework 

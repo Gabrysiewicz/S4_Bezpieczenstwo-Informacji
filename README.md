@@ -1,2 +1,2 @@
 # Bezpieczeństwo informacji - Szyfry
-Należy stworzyć plik 'passwords' w którym będą przechowywane rezultaty porgramów
+Należy stworzyć katalog 'passwords' w którym będą przechowywane rezultaty porgramów

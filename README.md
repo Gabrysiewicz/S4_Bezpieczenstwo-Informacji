@@ -10,7 +10,7 @@ W katalogu 'passwords' będą przechowywane rezultaty programów
 | 5_32_126_passwd.txt | +20G | -1 | 5 znakowe od ASCII 32 do 126 |
 | 5_97_122_passwd.txt | 68M | = | 5 znakowe od ASCII 97 do 122 |
 | 6_97_122_passwd.txt |  239M  | = | 6 znakowe od ASCII 97 do 122 |
-| 6_32_126_passwd.txt |  ???  | - | 6 znakowe od ASCII 32 do 126 |
+| 6_32_126_passwd.txt |  ~4T  | ??? | 6 znakowe od ASCII 32 do 126 |
 | deszczowiec.txt | 3,0K | + | Hasła desczowca od 1.01.1970 do 4.04.2022 ze znamymi 2 bajtami |
 | deszczowiec_week_2.txt | 312B | + | Hasła desczowca od 28.03.2022 do 4.04.2022 ze znanymu 2 bajtami|
 | deszczowiec_week_3.txt | 37B | + | Hasła desczowca od 28.03.2022 do 4.04.2022 ze znanymu 3 bajtami |

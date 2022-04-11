@@ -7,7 +7,7 @@ W katalogu 'passwords' będą przechowywane rezultaty programów
 | 3_97_122_passwd.txt | 69K | + | 3 znakowe od ASCII 97 do 122 |
 | 4_32_126_passwd.txt | 373M | = | 4 znakowe od ASCII 32 do 126 |
 | 4_97_122_passwd.txt | 2,2M | + | 4 znakowe od ASCII 97 do 122 |
-| 5_32_126_passwd.txt | -1 | - | 5 znakowe od ASCII 32 do 126 |
+| 5_32_126_passwd.txt | +20G | -1 | 5 znakowe od ASCII 32 do 126 |
 | 5_97_122_passwd.txt | 68M | = | 5 znakowe od ASCII 97 do 122 |
 | 6_97_122_passwd.txt |  239M  | = | 6 znakowe od ASCII 97 do 122 |
 | 6_32_126_passwd.txt |  ???  | - | 6 znakowe od ASCII 32 do 126 |
@@ -20,9 +20,9 @@ W katalogu 'passwords' będą przechowywane rezultaty programów
 
 | Sign | Desc |
 | ------------- | ------------ |
-| - | nie ma go tutaj plik jest za duży |
-| = | nie mo go tutaj plik jest za duży dla github, należy skorzystać z programu |
+| - | nie ma go tutaj, plik jest za duży |
+| = | nie mo go tutaj, plik jest za duży dla github, należy skorzystać z programu i go wygenerwoać |
 | + | jest tutaj |
-| -1 | zbyt duży |
+| -1 | za duży, można go wygenerować przy pomocy programu |
 | ??? | Potężny plik - robi wrażenie |
 

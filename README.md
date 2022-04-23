@@ -19,7 +19,7 @@ Udokumentuj w sprawozdaniu szyfrowanie i deszyfrowanie pliku przy użyciu wybran
 ### P4.2.1 Zaszyfruj i odszyfruj plik stosując opcje -base64 i -salt. Opisz, co uzyskasz stosując te opcje. 
 
 ```    
- ======== Encritption ======== 
+ ======== Encrytption ======== 
 openssl enc -aes-256-cbc -base64 -salt -in paranoid.txt -out paranoid_aes_salt.bin
 enter aes-256-cbc encryption password:
 Verifying - enter aes-256-cbc encryption password:
@@ -27,7 +27,7 @@ Verifying - enter aes-256-cbc encryption password:
 Using -iter or -pbkdf2 would be better.
 ```
 ```    
- ======== Decritption ========
+ ======== Decrytption ========
 openssl enc -aes-256-cbc -d -base64 -salt -in paranoid_aes_salt.bin -out paranoid_salt.txt     
 enter aes-256-cbc decryption password:
 *** WARNING : deprecated key derivation used.

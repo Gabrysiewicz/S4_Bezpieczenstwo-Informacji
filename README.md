@@ -121,4 +121,4 @@ Follow the white rabbit.
 
 Knock, knock,N�|-% 
 ```
-We Wszystkich plikach wprowadzałem 5 losowych znaków 1 obok drugiego w losowym miejscu. Wprowadzenie 'błędu' na początku sprawiał że hasło przesawało działać przez co nie dało się odszyfrować pliku np.error_ecb_d.txt 
+We Wszystkich plikach wprowadzałem 5 losowych znaków 1 obok drugiego w losowym miejscu. Wprowadzenie 'błędu' na początku sprawiał że hasło deszyfrujące przestawało działać przez co nie dało się odszyfrować pliku np.error_ecb_d.txt 

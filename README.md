@@ -79,6 +79,8 @@ I wish I could but it's too late
 ### Jaka opcja umożliwi podanie klucza szyfrującego w linii polecenia.
 
 ## P.4.3.1 Wyświetl zawartość zaszyfrowanych plików graficznych. Umieść je w sprawozdaniu.
+![alt text](https://github.com/Gabrysiewicz/BI-Szyfry/blob/lab-4/BI_cbc.bmp)
+![alt text](https://github.com/Gabrysiewicz/BI-Szyfry/blob/lab-4/BI_ebc.bmp)
 Omów uzyskane wyniki. Uzasadnij zauważone charakterystyczne cechy
 poszczególnych wyników w zależności od zawartości pliku graficznego. Czy we
 wszystkich szyfrogramach są takie same i dlaczego? Przeanalizuj swoje obserwacje

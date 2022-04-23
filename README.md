@@ -84,3 +84,41 @@ wszystkich szyfrogramach są takie same i dlaczego? Przeanalizuj swoje obserwacj
 i opisz je w sprawozdaniu.
 
 ### Szyfrowanie EBC nie nadaje się do obrazów prostch o małej złożoności kolorystycznej i geometrycznej
+
+
+### P.4.4. Oznacz miejsce wprowadzenia przekłamania i zamieść tą informacje w sprawozdaniu.
+Ile danych jestes w stanie odczytać po odszyfrowaniu uszkodzonych plików
+zaszyfrowanych algorytmem szyfrującym pracującym w trybie ECB, CBC, CFB, OFB,
+CTR? Opisz, jakiego algorytmu użyłeś. Wyjaśnij uzyskane wyniki. Wyciągnij wnioski
+z przeprowadzonego badania i opisz je w sprawozdaniu?
+```
+➜  matrix head error_???_d.txt
+==> error_cbc_d.txt <==
+Wake up, Neo...
+H/ou...�֠
+Follo>y/� white rabbit.
+
+Knock, knock, Neo
+
+==> error_cfb_d.txt <==
+Wake up, Neo...
+The Matrix has you...
+Follow the white rabbit.
+
+Knoc�D��ock, Ne�#
+==> error_ctr_d.txt <==
+Wake up, Neo...
+The Matrix has you����ollow the white rabbit.
+
+Knock, knock, Neo
+
+==> error_ecb_d.txt <==
+
+==> error_ofb_d.txt <==
+Wake up, Neo...
+The Matrix has you...
+Follow the white rabbit.
+
+Knock, knock,N�|-% 
+```
+We Wszystkich plikach wprowadzałem 5 losowych znaków 1 obok drugiego w losowym miejscu. Wprowadzenie 'błędu' na początku sprawiał że hasło przesawało działać przez co nie dało się odszyfrować pliku np.error_ecb_d.txt 

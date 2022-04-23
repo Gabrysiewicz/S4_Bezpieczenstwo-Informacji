@@ -130,7 +130,7 @@ Knock, knock,N�|-%
 ```
 ### We Wszystkich plikach wprowadzałem 5 losowych znaków 1 obok drugiego w losowym miejscu. Wprowadzenie 'błędu' na początku sprawiał że hasło deszyfrujące przestawało działać przez co nie dało się odszyfrować pliku np.error_ecb_d.txt 
 
-## P.4.5. Użyj trybów ECB, CBC, CFB, OFB, CTR do zaszyfrowania plików. 
+## <p color='red'>P.4.5.</p> Użyj trybów ECB, CBC, CFB, OFB, CTR do zaszyfrowania plików. 
 W tym przypadku możesz użyć dowolnego algorytmu. Określ, które z trybów wymagają uzupełniania
 bloków. W sprawozdaniu umieść zrzut ekranu prezentujący wyniki oraz wyjaśnij,
 dlaczego niektóre z trybów pracy algorytmów szyfrujących nie wymagają uzupełnienia
@@ -144,7 +144,7 @@ oraz określ, co z tego wynika.
 | OFB | - |
 | CTR | - |
 
-## P.4.6. W celu sprawdzenia, co jest dodawane podczas uzupełniania do rozmiaru pełnego bloku należy ponownie wykonać szyfrowanie plików o rozmiarze 20 i 32 bajty z wykorzystaniem algorytmów AES i DES w trybie wymagającym uzupełniania bloków. 
+## <p color='red'>P.4.6.</p> W celu sprawdzenia, co jest dodawane podczas uzupełniania do rozmiaru pełnego bloku należy ponownie wykonać szyfrowanie plików o rozmiarze 20 i 32 bajty z wykorzystaniem algorytmów AES i DES w trybie wymagającym uzupełniania bloków. 
 Niestety odszyfrowanie plików automatycznie usunie dopełnienie,
 uniemożliwiając nam jego podgląd. Aby rozwiązać ten problem podczas odszyfrowania
 użyj opcji –nopad. Do wyświetlenia plików użyj następnie polecenia hexdump.

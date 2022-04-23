@@ -18,20 +18,23 @@ Udokumentuj w sprawozdaniu szyfrowanie i deszyfrowanie pliku przy użyciu wybran
 
 ### P4.2.1 Zaszyfruj i odszyfruj plik stosując opcje -base64 i -salt. Opisz, co uzyskasz stosując te opcje. 
 
-```     ======== Encritption ======== 
+```    
+ ======== Encritption ======== 
 openssl enc -aes-256-cbc -base64 -salt -in paranoid.txt -out paranoid_aes_salt.bin
 enter aes-256-cbc encryption password:
 Verifying - enter aes-256-cbc encryption password:
 *** WARNING : deprecated key derivation used.
 Using -iter or -pbkdf2 would be better.
 ```
-```     ======== Decritption ========
+```    
+ ======== Decritption ========
 openssl enc -aes-256-cbc -d -base64 -salt -in paranoid_aes_salt.bin -out paranoid_salt.txt     
 enter aes-256-cbc decryption password:
 *** WARNING : deprecated key derivation used.
 Using -iter or -pbkdf2 would be better.
 ```
-```     ======== Encrypted ========
+```    
+ ======== Encrypted ========
 U2FsdGVkX1/9S9yEMBUzEHQ4U18fPIOVaJDnUSi2N2JbUYZvBGgTHWPFfnmCQiTM
 xtdChPbxBq7hhJ8sag0nLydA3NeHjiseBwHAA709pxRcEW5FMwRagOnfYA95+2Gs
 Z59qKrhhbZKgq8QFTdiZoVCzulV7PCqx+pa8qDxLdjaQh8S7UQbg0MklA8ZADPdo
@@ -47,7 +50,8 @@ PjHeBBJxRtD9w6KUcIDcm+NXJw6/Vs37mnqdHgROI0EQ0iItkxK8lP8mpz1V9JfS
 UMqH0rQFjZ0zMAl+2OkFpSzTATkDTcmJGtYHmII+8kdbc5PskczaDy0F3fqt2czQ
 i5Rzp5w/h0S7mjN3Pl/nZeiY6W4xKscWGCt3M2EIUmwMXt2Htqf4gyxHfMhDHe1F
 ```
-```     ======== Decrypted ========
+```    
+ ======== Decrypted ========
 Finished with my woman 'cause
 She couldn't help me with my mind
 People think I'm insane because

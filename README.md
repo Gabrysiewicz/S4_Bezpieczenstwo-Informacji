@@ -129,6 +129,7 @@ bloków. W sprawozdaniu umieść zrzut ekranu prezentujący wyniki oraz wyjaśni
 dlaczego niektóre z trybów pracy algorytmów szyfrujących nie wymagają uzupełnienia
 oraz określ, co z tego wynika.
 | Algorytm | Uzupełnienie bloków |
+| --- | --- |
 | ECB | + |
 | CBC | + |
 | PCCB | + |

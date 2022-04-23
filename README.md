@@ -122,3 +122,16 @@ Follow the white rabbit.
 Knock, knock,N�|-% 
 ```
 We Wszystkich plikach wprowadzałem 5 losowych znaków 1 obok drugiego w losowym miejscu. Wprowadzenie 'błędu' na początku sprawiał że hasło deszyfrujące przestawało działać przez co nie dało się odszyfrować pliku np.error_ecb_d.txt 
+
+### P.4.5. Użyj trybów ECB, CBC, CFB, OFB, CTR do zaszyfrowania plików. W tym przypadku
+możesz użyć dowolnego algorytmu. Określ, które z trybów wymagają uzupełniania
+bloków. W sprawozdaniu umieść zrzut ekranu prezentujący wyniki oraz wyjaśnij,
+dlaczego niektóre z trybów pracy algorytmów szyfrujących nie wymagają uzupełnienia
+oraz określ, co z tego wynika.
+| Algorytm | Uzupełnienie bloków |
+| ECB | + |
+| CBC | + |
+| PCCB | + |
+| CFB | - |
+| OFB | - |
+| CTR | - |

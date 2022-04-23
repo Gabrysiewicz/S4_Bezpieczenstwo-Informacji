@@ -1,10 +1,10 @@
 # Bezpieczeństwo informacji - Lab4
-### P4.1.1 Zwróć uwagę na komunikaty na rys. Dlaczego tak się dzieje? 
+## P4.1.1 Zwróć uwagę na komunikaty na rys. Dlaczego tak się dzieje? 
 
 Wszystkie klucze powinny skladac sie z 64 znakow, aby openssl enc nie zapelniaj ich zerami.
 Taka operacja generowania klucza w ktorym sporym ciagem sa zera moze zle wplynac na bezpieczenstwo.
 
-### P4.1.2 Czy wszystkie tryby wymagają wektora inicjalizującego? 
+## P4.1.2 Czy wszystkie tryby wymagają wektora inicjalizującego? 
 Nie wszystkie np.aes_256_ecb nie korzysta z wektora.
 ```
 student@localhost:~/Paranoid> openssl enc -aes-256-ecb -e -in file -out file_aes_256_ecb.bin -iv "2020" 
@@ -16,7 +16,7 @@ warning: iv not used by this cipher
 ```
 Udokumentuj w sprawozdaniu szyfrowanie i deszyfrowanie pliku przy użyciu wybranych algorytmów szyfrujących i trybów pracy.
 
-### P4.2.1 Zaszyfruj i odszyfruj plik stosując opcje -base64 i -salt. Opisz, co uzyskasz stosując te opcje. 
+## P4.2.1 Zaszyfruj i odszyfruj plik stosując opcje -base64 i -salt. Opisz, co uzyskasz stosując te opcje. 
 
 ```    
  ======== Encrytption ======== 
@@ -77,7 +77,7 @@ I tell you to enjoy life
 I wish I could but it's too late
 ```
 Jaka opcja umożliwi podanie klucza szyfrującego w linii polecenia.
-### P.4.3.1 Wyświetl zawartość zaszyfrowanych plików graficznych. Umieść je w sprawozdaniu.
+## P.4.3.1 Wyświetl zawartość zaszyfrowanych plików graficznych. Umieść je w sprawozdaniu.
 Omów uzyskane wyniki. Uzasadnij zauważone charakterystyczne cechy
 poszczególnych wyników w zależności od zawartości pliku graficznego. Czy we
 wszystkich szyfrogramach są takie same i dlaczego? Przeanalizuj swoje obserwacje
@@ -90,7 +90,7 @@ Szyfrowanie EBC nie nadaje się do obrazów
 - z prostym jednokolorowym tłem
 
 
-### P.4.4. Oznacz miejsce wprowadzenia przekłamania i zamieść tą informacje w sprawozdaniu.
+## P.4.4. Oznacz miejsce wprowadzenia przekłamania i zamieść tą informacje w sprawozdaniu.
 Ile danych jestes w stanie odczytać po odszyfrowaniu uszkodzonych plików
 zaszyfrowanych algorytmem szyfrującym pracującym w trybie ECB, CBC, CFB, OFB,
 CTR? Opisz, jakiego algorytmu użyłeś. Wyjaśnij uzyskane wyniki. Wyciągnij wnioski
@@ -127,7 +127,7 @@ Knock, knock,N�|-%
 ```
 We Wszystkich plikach wprowadzałem 5 losowych znaków 1 obok drugiego w losowym miejscu. Wprowadzenie 'błędu' na początku sprawiał że hasło deszyfrujące przestawało działać przez co nie dało się odszyfrować pliku np.error_ecb_d.txt 
 
-### P.4.5. Użyj trybów ECB, CBC, CFB, OFB, CTR do zaszyfrowania plików. 
+## P.4.5. Użyj trybów ECB, CBC, CFB, OFB, CTR do zaszyfrowania plików. 
 W tym przypadku możesz użyć dowolnego algorytmu. Określ, które z trybów wymagają uzupełniania
 bloków. W sprawozdaniu umieść zrzut ekranu prezentujący wyniki oraz wyjaśnij,
 dlaczego niektóre z trybów pracy algorytmów szyfrujących nie wymagają uzupełnienia
@@ -141,7 +141,7 @@ oraz określ, co z tego wynika.
 | OFB | - |
 | CTR | - |
 
-### P.4.6. W celu sprawdzenia, co jest dodawane podczas uzupełniania do rozmiaru pełnego bloku należy ponownie wykonać szyfrowanie plików o rozmiarze 20 i 32 bajty z wykorzystaniem algorytmów AES i DES w trybie wymagającym uzupełniania bloków. 
+## P.4.6. W celu sprawdzenia, co jest dodawane podczas uzupełniania do rozmiaru pełnego bloku należy ponownie wykonać szyfrowanie plików o rozmiarze 20 i 32 bajty z wykorzystaniem algorytmów AES i DES w trybie wymagającym uzupełniania bloków. 
 Niestety odszyfrowanie plików automatycznie usunie dopełnienie,
 uniemożliwiając nam jego podgląd. Aby rozwiązać ten problem podczas odszyfrowania
 użyj opcji –nopad. Do wyświetlenia plików użyj następnie polecenia hexdump.
@@ -149,7 +149,7 @@ Przykładowe działanie polecenia pokazano na Rys. 4.3. Omów, co zostało dodan
 poszczególnych plików w celu uzupełnienia do rozmiaru pełnych bloków. Wyjaśnij
 mechanizm dopełniania bloków dla algorytmu AES i DES.
 
-### P.4.7. Proszę kilkukrotnie wywołać polecenia.
+## P.4.7. Proszę kilkukrotnie wywołać polecenia.
 Następnie proszę poruszać myszą, po czym należy wykonać kolejną serie odczytów entropii. Podobne
 doświadczenie wykonaj po użyciu klawiatury do przepisania fragmentu tekstu. Prosze
 również sprawdzic jak wpływają na entropie operacje dyskowe. Można użyć polecenia
@@ -157,7 +157,7 @@ cat /dev/zero >test, które będzie w sposób ciągły zapisywało zera do pliku
 operacje dyskowe. Uwaga! Po zakończeniu należy usunąć utworzony plik test! Wnioski
 i obserwacje z niniejszego ćwiczenia proszę zamieścić w sprawozdaniu.
 
-### P.4.8. Uruchom polecenie kilka razy. Zaobserwuj, że w pewnym momencie przestanie odpowiadać bezzwłocznie. 
+## P.4.8. Uruchom polecenie kilka razy. Zaobserwuj, że w pewnym momencie przestanie odpowiadać bezzwłocznie. 
 
 W moim przypadku odpowiał za każdym razem.
 

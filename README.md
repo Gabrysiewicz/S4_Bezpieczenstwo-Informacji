@@ -83,4 +83,4 @@ poszczególnych wyników w zależności od zawartości pliku graficznego. Czy we
 wszystkich szyfrogramach są takie same i dlaczego? Przeanalizuj swoje obserwacje
 i opisz je w sprawozdaniu.
 
-### Szyfrowanie EBC nie nadaje się do obrazów prostch o małej złożoności kolorystycznej
+### Szyfrowanie EBC nie nadaje się do obrazów prostch o małej złożoności kolorystycznej i geometrycznej

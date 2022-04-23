@@ -76,7 +76,8 @@ Telling you now of my state
 I tell you to enjoy life
 I wish I could but it's too late
 ```
-Jaka opcja umożliwi podanie klucza szyfrującego w linii polecenia.
+### Jaka opcja umożliwi podanie klucza szyfrującego w linii polecenia.
+
 ## P.4.3.1 Wyświetl zawartość zaszyfrowanych plików graficznych. Umieść je w sprawozdaniu.
 Omów uzyskane wyniki. Uzasadnij zauważone charakterystyczne cechy
 poszczególnych wyników w zależności od zawartości pliku graficznego. Czy we
@@ -125,7 +126,7 @@ Follow the white rabbit.
 
 Knock, knock,N�|-% 
 ```
-We Wszystkich plikach wprowadzałem 5 losowych znaków 1 obok drugiego w losowym miejscu. Wprowadzenie 'błędu' na początku sprawiał że hasło deszyfrujące przestawało działać przez co nie dało się odszyfrować pliku np.error_ecb_d.txt 
+### We Wszystkich plikach wprowadzałem 5 losowych znaków 1 obok drugiego w losowym miejscu. Wprowadzenie 'błędu' na początku sprawiał że hasło deszyfrujące przestawało działać przez co nie dało się odszyfrować pliku np.error_ecb_d.txt 
 
 ## P.4.5. Użyj trybów ECB, CBC, CFB, OFB, CTR do zaszyfrowania plików. 
 W tym przypadku możesz użyć dowolnego algorytmu. Określ, które z trybów wymagają uzupełniania
@@ -159,7 +160,7 @@ i obserwacje z niniejszego ćwiczenia proszę zamieścić w sprawozdaniu.
 
 ## P.4.8. Uruchom polecenie kilka razy. Zaobserwuj, że w pewnym momencie przestanie odpowiadać bezzwłocznie. 
 
-W moim przypadku odpowiał za każdym razem.
+### W moim przypadku odpowiał za każdym razem.
 
 Konieczne będzie oczekiwanie na wynik polecenia.
 Zaobserwuj, co się stanie, jeśli podczas oczekiwania nie będziesz wykonywać żadnych

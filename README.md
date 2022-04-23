@@ -77,3 +77,10 @@ I tell you to enjoy life
 I wish I could but it's too late
 ```
 Jaka opcja umożliwi podanie klucza szyfrującego w linii polecenia.
+### P.4.3.1 Wyświetl zawartość zaszyfrowanych plików graficznych. Umieść je w sprawozdaniu.
+Omów uzyskane wyniki. Uzasadnij zauważone charakterystyczne cechy
+poszczególnych wyników w zależności od zawartości pliku graficznego. Czy we
+wszystkich szyfrogramach są takie same i dlaczego? Przeanalizuj swoje obserwacje
+i opisz je w sprawozdaniu.
+
+# Szyfrowanie EBC nie nadaje się do obrazów prostch o małej złożoności kolorystycznej

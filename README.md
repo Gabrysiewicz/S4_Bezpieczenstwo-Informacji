@@ -153,6 +153,8 @@ poszczególnych plików w celu uzupełnienia do rozmiaru pełnych bloków. Wyja�
 mechanizm dopełniania bloków dla algorytmu AES i DES.
 
 ## P.4.7. Proszę kilkukrotnie wywołać polecenia.
+![alt text](https://github.com/Gabrysiewicz/BI-Szyfry/blob/lab-4/cat.png)
+
 Następnie proszę poruszać myszą, po czym należy wykonać kolejną serie odczytów entropii. Podobne
 doświadczenie wykonaj po użyciu klawiatury do przepisania fragmentu tekstu. Prosze
 również sprawdzic jak wpływają na entropie operacje dyskowe. Można użyć polecenia
@@ -162,7 +164,7 @@ i obserwacje z niniejszego ćwiczenia proszę zamieścić w sprawozdaniu.
 
 ## P.4.8. Uruchom polecenie kilka razy. Zaobserwuj, że w pewnym momencie przestanie odpowiadać bezzwłocznie. 
 
-### W moim przypadku odpowiał za każdym razem.
+### W moim przypadku odpowiał za każdym razem, zarówno dla 16 jak i 1600.
 
 Konieczne będzie oczekiwanie na wynik polecenia.
 Zaobserwuj, co się stanie, jeśli podczas oczekiwania nie będziesz wykonywać żadnych

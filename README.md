@@ -155,7 +155,7 @@ Knock, knock,N�|-%
 ```
 ### We Wszystkich plikach wprowadzałem 5 losowych znaków 1 obok drugiego w losowym miejscu. Wprowadzenie 'błędu' na początku sprawiał że hasło deszyfrujące przestawało działać przez co nie dało się odszyfrować pliku np.error_ecb_d.txt 
 
-## <p color='red'>P.4.5.</p> Użyj trybów ECB, CBC, CFB, OFB, CTR do zaszyfrowania plików. 
+## P.4.5. Użyj trybów ECB, CBC, CFB, OFB, CTR do zaszyfrowania plików. 
 W tym przypadku możesz użyć dowolnego algorytmu. Określ, które z trybów wymagają uzupełniania
 bloków. W sprawozdaniu umieść zrzut ekranu prezentujący wyniki oraz wyjaśnij,
 dlaczego niektóre z trybów pracy algorytmów szyfrujących nie wymagają uzupełnienia
@@ -169,7 +169,7 @@ oraz określ, co z tego wynika.
 | OFB | - |
 | CTR | - |
 
-## <p color='red'>P.4.6.</p> W celu sprawdzenia, co jest dodawane podczas uzupełniania do rozmiaru pełnego bloku należy ponownie wykonać szyfrowanie plików o rozmiarze 20 i 32 bajty z wykorzystaniem algorytmów AES i DES w trybie wymagającym uzupełniania bloków. 
+## P.4.6 W celu sprawdzenia, co jest dodawane podczas uzupełniania do rozmiaru pełnego bloku należy ponownie wykonać szyfrowanie plików o rozmiarze 20 i 32 bajty z wykorzystaniem algorytmów AES i DES w trybie wymagającym uzupełniania bloków. 
 Niestety odszyfrowanie plików automatycznie usunie dopełnienie,
 uniemożliwiając nam jego podgląd. Aby rozwiązać ten problem podczas odszyfrowania
 użyj opcji –nopad. Do wyświetlenia plików użyj następnie polecenia hexdump.
@@ -177,7 +177,7 @@ Przykładowe działanie polecenia pokazano na Rys. 4.3. Omów, co zostało dodan
 poszczególnych plików w celu uzupełnienia do rozmiaru pełnych bloków. Wyjaśnij
 mechanizm dopełniania bloków dla algorytmu AES i DES.
 
-<p color='red'>Nie udało mi się wykonać tego polecenia</p>
+Nie udało mi się wykonać tego polecenia
 
 ## P.4.7. Proszę kilkukrotnie wywołać polecenia.
 ![alt text](https://github.com/Gabrysiewicz/BI-Szyfry/blob/lab-4/cat.png)

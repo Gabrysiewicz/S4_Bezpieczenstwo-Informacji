@@ -144,7 +144,7 @@ The Matrix has you����ollow the white rabbit.
 
 Knock, knock, Neo
 
-==> error_ecb_d.txt <==
+==> error_ecb_d.txt <== Zakłamanie w pierwszych pięciu bitach
 
 ==> error_ofb_d.txt <==
 Wake up, Neo...
@@ -177,6 +177,8 @@ Przykładowe działanie polecenia pokazano na Rys. 4.3. Omów, co zostało dodan
 poszczególnych plików w celu uzupełnienia do rozmiaru pełnych bloków. Wyjaśnij
 mechanizm dopełniania bloków dla algorytmu AES i DES.
 
+<p color='red'>Nie udało mi się wykonać tego polecenia</p>
+
 ## P.4.7. Proszę kilkukrotnie wywołać polecenia.
 ![alt text](https://github.com/Gabrysiewicz/BI-Szyfry/blob/lab-4/cat.png)
 
@@ -188,7 +190,10 @@ operacje dyskowe. Uwaga! Po zakończeniu należy usunąć utworzony plik test! W
 i obserwacje z niniejszego ćwiczenia proszę zamieścić w sprawozdaniu.
 
 ## P.4.8. Uruchom polecenie kilka razy. Zaobserwuj, że w pewnym momencie przestanie odpowiadać bezzwłocznie. 
-
+```
+head -c 16 /dev/random | hexdump
+head -c 1600 /de/vrandom | hexdump
+```
 ### W moim przypadku odpowiał za każdym razem, zarówno dla 16 jak i 1600.
 
 Konieczne będzie oczekiwanie na wynik polecenia.
@@ -196,3 +201,5 @@ Zaobserwuj, co się stanie, jeśli podczas oczekiwania nie będziesz wykonywać 
 czynności w systemie, co jeśli będziesz poruszać myszą, używać klawiatury,
 wykonywać operacje dyskowe. Obserwacje i wnioski z przeprowadzonego badania
 umieść w sprawozdaniu.
+
+Wszelkie operacje zapisowe, odczytowe, peryferyjne wpływają na generatory entropii zaimplementowane w systemie Linux

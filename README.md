@@ -1,4 +1,6 @@
-# Skróty kryptograficzne
+<h1 align='center'>Skróty kryptograficzne</h1>
+
+## Zadanie 5.1. Wykorzystanie algorytmów nieodwracalnej funkcji skrótu go generowania skrótu wiadomości
 1. Utwórz trzy pliki: plik 900 B, plik 900 kB i 100 MB
 2. Użyj polecenia openssl dgst do wygenerowania wartości funkcji skrótu dla
 utworzonych plików.
@@ -34,3 +36,47 @@ polecenie do wykonania 100 pomiarów.
 | whirlpool | 900B | 0s |
 | whirlpool | 900kB | 0.5s |
 | whirlpool | 100MB | 0.9s |
+## Zadanie 5.2. Funkcje skrótu a bezpieczeństwo przechowywanych haseł
+```
+### Aktualne hasło: student
+student:$6$Rn6W1v60Cpe4ctsL$x4bJ9vtmtwwZj4zYFJ7ZElc8rKR6CzJNfrHNy/zr1kEIX3T6B8k2if3qoXzegwGMn7GZXuMQ1AS1Tyb/uX9nE.:19124:0:99999:7:::
+```
+```
+➜  LAB6-Skroty openssl passwd -6 -salt X5afde0 hiszpanskainkwizycja
+$6$X5afde0$ypl4hiwv8gEL8upFl85bny4NadCSi3z0G3lXRfZsLS/gzFoD..lJL82AzdHoEj4DHgaVF4VOEknjTFV.pEOPu1
+➜  LAB6-Skroty sudo usermod -p '$6$X5afde0$ypl4hiwv8gEL8upFl85bny4NadCSi3z0G3lXRfZsLS/gzFoD..lJL82AzdHoEj4DHgaVF4VOEknjTFV.pEOPu1' student
+➜  LAB6-Skroty sudo grep student /etc/shadow
+student:$6$X5afde0$ypl4hiwv8gEL8upFl85bny4NadCSi3z0G3lXRfZsLS/gzFoD..lJL82AzdHoEj4DHgaVF4VOEknjTFV.pEOPu1:19124:0:99999:7:::
+➜  ~ su student
+Hasło: (hiszpanskainkwizycja)
+student@dell-Inspiron-5737:/home/dell$ 
+```
+P.5.3. Jakie zmiany zauważyłeś w pliku shadow? Zaloguj się na konta root lub student. Jakiego
+hasła użyłeś? Udokumentuj wykonanie ćwiczenia. Omów wykonane ćwiczenie i jego
+efekty. Czy dana metoda zmiany hasła jest bezpieczna? Jeśli nie zaproponuj zmiany
+i wyjaśnij dlaczego.
+
+Hasło w postaci zahashowanej oraz jawnej jest widoczne na terminalu a co za tym idzie jest też widoczne w histori terminala oraz plikach ~/.(shell_name)_history
+Można wymusić na użytkowniku zmiane hasła modyfikująć /etc/shadow aby użytkownik sam zmienił hasło przy najbliższym logowaniu
+
+## Zadanie 5.3. Keyed Hash oraz HMAC
+
+Treść zadania
+- Utwórz plik o nazwie hmac o dowolnej wielkości.
+- Należy wygenerować funkcję skrótu z kluczem dla pliku, wykorzystując algorytmy
+HMAC-MD5, HMAC-SHA256 oraz HMAC-SHA1. Podczas zadania należy
+wykorzystać klucze o trzech różnych długościach.
+```
+➜  LAB6-Skroty openssl dgst -md5 -hmac "Black" hmac 
+HMAC-MD5(hmac)= 9aead12d19ba8ab8a95aca6e86799c74
+➜  LAB6-Skroty openssl dgst -sha256 -hmac "Sabbath" hmac
+HMAC-SHA256(hmac)= 74df578ff5c4f71a1ea643eb6728729009b73544ee5e5efc4c418d655f16315b
+➜  LAB6-Skroty openssl dgst -sha1 -hmac "Paranoid" hmac
+HMAC-SHA1(hmac)= 305f7a2c05c2e9cf7360f999b64e2cf70e43b8d1
+```
+- Przykład polecenia generuje wartość funkcji z kluczem wykorzystując algorytm
+HMAC-MD5. Ciąg występujący po opcji -hmac jest kluczem. Zmodyfikuj polecenie
+dla każdego z algorytmów.
+```
+openssl dgst -md5 -hmac "abcdefg" filename
+```

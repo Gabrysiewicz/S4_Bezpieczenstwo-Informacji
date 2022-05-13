@@ -16,8 +16,7 @@ Określ średni czas przetworzenia 1MB danych dla każdej z kombinacji: rozmiar 
 algorytm obliczenia skrótu. W celu określenia czasu wykonania polecenia skorzystaj
 z systemowego polecenia "time". Jako wynik zapisz sumy czasów user+sys. Wynik
 należy zapisać, jako średnia z minimum 100 pomiarów. Otrzymane wyniki umieścić
-w tabeli, a następnie sporządzić wykresy dla zastosowanych algorytmów. Przykładowe
-polecenie do wykonania 100 pomiarów.
+w tabeli, a następnie sporządzić wykresy dla zastosowanych algorytmów.
 | Algorytm | Plik | user+sys |
 | --- | --- | --- |
 | md5 | 900B | 0s |

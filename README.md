@@ -101,7 +101,7 @@ Treść zadania
 
 "bit przeciwny" - nie jestem pewien jak to rozumieć ale jako iż w pliku mamy znaki ASCII(0 do 127) a w systemie szesnastkowym liczby od 0 do 255
 to chodzi o zamiane 0 -> 255, 1 -> 254, 2 -> 253... ale ze dla ASCII nie dokońca jest to możliwe więc zakładam że może chodzić o (szesnastkowe) 67 -> 76 : g -> v lub w ograniczeniu szesnastkowym do 127 (dziesiętnie): 0 -> 127, 1 -> 126, ... 70 -> 58 : F -> :
-Dla obu przypadków hashe były różne.
+
 Wersja 67 -> 76 : g -> v
  ```
 ➜  LAB6-Skroty openssl dgst -md5 testowy.txt   
@@ -115,6 +115,7 @@ MD5(testowy.txt)= dc43c964e028c01632e52f3836dfdd7c
 SHA256(testowy.txt)= 13e2205488a3c7ecd382ebcdc564e1a7a06f92e77f5580a6980f03777e2aeb91
  ```
 ### P.5.6. Proszę przeanalizować otrzymane wyniki i odpowiedzieć w sprawozdaniu na pytanie czy H1 oraz H2 są podobne czy też nie. Odpowiedź należy uzasadnić.
+Dla obu przypadków hashe były różne. Licząc "sumę" kontrolną prawdopodobiństwo otrzymania identycznych sum dla różnych plików jest bliskie zeru
 ### P.5.7. Proszę napisać program obliczający ile jest zgodnych bitów w H1 oraz H2
 
 ## Zadanie 5.5. Bezpieczeństwo funkcji skrótu
@@ -122,8 +123,20 @@ Treść zadania
 - Pobierz archiwum o nazwie letters i następnie je rozpakuj.
 - Otwórz i porównaj ze sobą dwa pliki znajdujące się w folderze po rozpakowaniu.
 - Wygeneruj wartości funkcji skrótu z plików. Użyj algorytmu MD5. Porównaj otrzymane skróty.
+```
+➜  LAB6-Skroty openssl dgst -md5 *.ps
+MD5(letter_of_rec.ps)= a25f7f0b29ee0b3968c860738533a4b9
+MD5(order.ps)= a25f7f0b29ee0b3968c860738533a4b9
+Hashe są identyczne
+```
 - Wygeneruj wartości funkcji skrótu z plików. Użyj algorytmu SHA256. Porównaj otrzymane skróty.
-
+```
+➜  LAB6-Skroty openssl dgst -sha256 *.ps
+SHA256(letter_of_rec.ps)= de4e4c6e2b94e95a3c5bd72a9a6af29bc5f83bf759325d9921943a6fc08ea245
+SHA256(order.ps)= 077046dd66015e05c3e03a43a6e4de129038e0701de5a4103fc7ed91c3782d06
+Hashe są różne
+```
 ### P.5.8. Czy pliki po rozpakowaniu się różnią? Zamieść odpowiednie zrzuty z wygenerowanymiwartościami funkcji skrótu. Omów czy otrzymane z plików wartości funkcji skrótu dla danych algorytmów są takie same czy różne? Omów wpływ stosowania algorytmów starszego typu na poziom bezpieczeństwa „haszowania”. Czy użyłbyś algorytmu MD5 do podpisywania plików? Odpowiedź uzasadnij.
 
+Na bazie tych dwóch plików można stwierdzić że algorytm MD5 jest podatny na kolizje. Co za tym idzie można wygenerować różne pliki o identycznych sumach kontrolnych przez co MD5 okazuje się dość słabym algorytmem. Ze względów bezpieczeństwa lepiej było by użyć bardziej współczesnego algorytmu.
 ## Zadanie 5.6. Nieodwracalność kontra odporność na kolizje

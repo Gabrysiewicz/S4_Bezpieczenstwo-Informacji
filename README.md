@@ -47,7 +47,7 @@ $6$X5afde0$ypl4hiwv8gEL8upFl85bny4NadCSi3z0G3lXRfZsLS/gzFoD..lJL82AzdHoEj4DHgaVF
 student:$6$X5afde0$ypl4hiwv8gEL8upFl85bny4NadCSi3z0G3lXRfZsLS/gzFoD..lJL82AzdHoEj4DHgaVF4VOEknjTFV.pEOPu1:19124:0:99999:7:::
 ➜  ~ su student
 Hasło: (hiszpanskainkwizycja)
-student@dell-Inspiron-5737:/home/dell$ 
+student@dell:/home/dell$ 
 ``` 
 ### P.5.3. Jakie zmiany zauważyłeś w pliku shadow? Zaloguj się na konta root lub student. Jakiego hasła użyłeś? Udokumentuj wykonanie ćwiczenia. Omów wykonane ćwiczenie i jego efekty. Czy dana metoda zmiany hasła jest bezpieczna? Jeśli nie zaproponuj zmiany i wyjaśnij dlaczego.
 

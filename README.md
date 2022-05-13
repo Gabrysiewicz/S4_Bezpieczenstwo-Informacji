@@ -98,7 +98,11 @@ Treść zadania
 - Wygeneruj wartość funkcji skrótu H1 dla tego pliku wykorzystując algorytmy MD5 i następnie SHA256.
 - Zamień jeden bit na bit przeciwny w pliku wejściowym. Użyj w tym celu edytora Okteta.
 - Wygeneruj wartość funkcji skrótu H2 dla zmodyfikowanego pliku
- 67 -> 76 : g -> v
+
+"bit przeciwny" - nie jestem pewien jak to rozumieć ale jako iż w pliku mamy znaki ASCII(0 do 127) a w systemie szesnastkowym liczby od 0 do 255
+to chodzi o zamiane 0 -> 255, 1 -> 254, 2 -> 253... ale ze dla ASCII nie dokońca jest to możliwe więc zakładam że może chodzić o (szesnastkowe) 67 -> 76 : g -> v lub w ograniczeniu szesnastkowym do 127 (dziesiętnie): 0 -> 127, 1 -> 126, ... 70 -> 58 : F -> :
+Dla obu przypadków hashe były różne.
+Wersja 67 -> 76 : g -> v
  ```
 ➜  LAB6-Skroty openssl dgst -md5 testowy.txt   
 MD5(testowy.txt)= c54eef216987067168e0e9034fb8f23b

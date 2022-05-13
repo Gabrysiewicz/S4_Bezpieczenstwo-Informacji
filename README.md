@@ -34,6 +34,7 @@ w tabeli, a następnie sporządzić wykresy dla zastosowanych algorytmów.
 | whirlpool | 900B | 0s |
 | whirlpool | 900kB | 0.5s |
 | whirlpool | 100MB | 0.9s |
+
 ![alt text](https://github.com/Gabrysiewicz/BI-Szyfry/blob/Skroty-kryptograficzne/wykres.png)
 ## Zadanie 5.2. Funkcje skrótu a bezpieczeństwo przechowywanych haseł
 ```

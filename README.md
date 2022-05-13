@@ -10,9 +10,8 @@ SHA256(100MB.txt)= 0fe8db603465b14919fa748542f6c51e9c5cbdd07ae197fb75fd6fba8e7ce
 SHA256(900B.txt)= 051233934020fc8ea0b3d3bf5fc1a4890efc2771598e29162e18d1c3a9c9169c
 SHA256(900kB.txt)= 12230942a7ef8519225a47b7a61b3997b59cae29f62c7773342a20d0f3c81496
 ```
-P.5.1. Dla każdego z tych plików oblicz wartość funkcji skrótu za pomocą trzech wybranych
-algorytmów wykorzystując funkcjonalność openssl. Omów i porównaj otrzymane
-skróty wiadomości.
+### P.5.1. Dla każdego z tych plików oblicz wartość funkcji skrótu za pomocą trzech wybranych algorytmów wykorzystując funkcjonalność openssl. Omów i porównaj otrzymane skróty wiadomości.
+
 Określ średni czas przetworzenia 1MB danych dla każdej z kombinacji: rozmiar pliku –
 algorytm obliczenia skrótu. W celu określenia czasu wykonania polecenia skorzystaj
 z systemowego polecenia "time". Jako wynik zapisz sumy czasów user+sys. Wynik
@@ -50,11 +49,8 @@ student:$6$X5afde0$ypl4hiwv8gEL8upFl85bny4NadCSi3z0G3lXRfZsLS/gzFoD..lJL82AzdHoE
 ➜  ~ su student
 Hasło: (hiszpanskainkwizycja)
 student@dell-Inspiron-5737:/home/dell$ 
-```
-P.5.3. Jakie zmiany zauważyłeś w pliku shadow? Zaloguj się na konta root lub student. Jakiego
-hasła użyłeś? Udokumentuj wykonanie ćwiczenia. Omów wykonane ćwiczenie i jego
-efekty. Czy dana metoda zmiany hasła jest bezpieczna? Jeśli nie zaproponuj zmiany
-i wyjaśnij dlaczego.
+``` 
+### P.5.3. Jakie zmiany zauważyłeś w pliku shadow? Zaloguj się na konta root lub student. Jakiego hasła użyłeś? Udokumentuj wykonanie ćwiczenia. Omów wykonane ćwiczenie i jego efekty. Czy dana metoda zmiany hasła jest bezpieczna? Jeśli nie zaproponuj zmiany i wyjaśnij dlaczego.
 
 Hasło w postaci zahashowanej oraz jawnej jest widoczne na terminalu a co za tym idzie jest też widoczne w histori terminala oraz plikach ~/.(shell_name)_history
 Można wymusić na użytkowniku zmiane hasła modyfikująć /etc/shadow aby użytkownik sam zmienił hasło przy najbliższym logowaniu
@@ -80,3 +76,50 @@ dla każdego z algorytmów.
 ```
 openssl dgst -md5 -hmac "abcdefg" filename
 ```
+### P.5.4. Czy w algorytmie HMAC konieczne jest używanie kluczy o stałej długości? 
+ Nie jest to konieczne
+### P.5.5. Jeśli tak, to, o jakiej długości? Odpowiedź uzasadnij w oparciu o wyniki przeprowadzonych testów.
+klucze dla SHA-1 powinny być większe/równe 20 bajtów i nie większe niż 64
+ ```
+➜  LAB6-Skroty openssl dgst -sha1 -hmac "Paranoid" hmac
+HMAC-SHA1(hmac)= 305f7a2c05c2e9cf7360f999b64e2cf70e43b8d1
+➜  LAB6-Skroty openssl dgst -sha1 -hmac "Paranoidd" hmac
+HMAC-SHA1(hmac)= c145c160f5eced89878b871a2e3b1a5e6babcf0d
+➜  LAB6-Skroty openssl dgst -sha1 -hmac "Paranoia" hmac 
+HMAC-SHA1(hmac)= d58a80fbd0c8446a061d16274a467113d0ef5988
+➜  LAB6-Skroty openssl dgst -sha1 -hmac "Parano" hmac  
+HMAC-SHA1(hmac)= 625dbd01569bb1250dc03c66e961e1dab0cd1d34
+➜  LAB6-Skroty openssl dgst -sha1 -hmac "Paranoi" hmac
+HMAC-SHA1(hmac)= adbd474d1280ed7c38057ee6cc67b3d84739aff1
+ ```
+ ### Zadanie 5.4. Losowość nieodwracalnej funkcji skrótu
+Treść zadania
+- Utwórz plik o nazwie testowy.txt o dowolnej wielkości.
+- Wygeneruj wartość funkcji skrótu H1 dla tego pliku wykorzystując algorytmy MD5 i następnie SHA256.
+- Zamień jeden bit na bit przeciwny w pliku wejściowym. Użyj w tym celu edytora Okteta.
+- Wygeneruj wartość funkcji skrótu H2 dla zmodyfikowanego pliku
+ 67 -> 76 : g -> v
+ ```
+➜  LAB6-Skroty openssl dgst -md5 testowy.txt   
+MD5(testowy.txt)= c54eef216987067168e0e9034fb8f23b
+➜  LAB6-Skroty openssl dgst -sha256 testowy.txt
+SHA256(testowy.txt)= 8cd1c7597e03af49969ef77190cbc8aa0c9f30e75f2d79fcba423b34d3a38de4
+➜  LAB6-Skroty okteta testowy.txt       
+➜  LAB6-Skroty openssl dgst -md5 testowy.txt   
+MD5(testowy.txt)= dc43c964e028c01632e52f3836dfdd7c
+➜  LAB6-Skroty openssl dgst -sha256 testowy.txt
+SHA256(testowy.txt)= 13e2205488a3c7ecd382ebcdc564e1a7a06f92e77f5580a6980f03777e2aeb91
+ ```
+### P.5.6. Proszę przeanalizować otrzymane wyniki i odpowiedzieć w sprawozdaniu na pytanie czy H1 oraz H2 są podobne czy też nie. Odpowiedź należy uzasadnić.
+### P.5.7. Proszę napisać program obliczający ile jest zgodnych bitów w H1 oraz H2
+
+## Zadanie 5.5. Bezpieczeństwo funkcji skrótu
+Treść zadania
+- Pobierz archiwum o nazwie letters i następnie je rozpakuj.
+- Otwórz i porównaj ze sobą dwa pliki znajdujące się w folderze po rozpakowaniu.
+- Wygeneruj wartości funkcji skrótu z plików. Użyj algorytmu MD5. Porównaj otrzymane skróty.
+- Wygeneruj wartości funkcji skrótu z plików. Użyj algorytmu SHA256. Porównaj otrzymane skróty.
+
+### P.5.8. Czy pliki po rozpakowaniu się różnią? Zamieść odpowiednie zrzuty z wygenerowanymiwartościami funkcji skrótu. Omów czy otrzymane z plików wartości funkcji skrótu dla danych algorytmów są takie same czy różne? Omów wpływ stosowania algorytmów starszego typu na poziom bezpieczeństwa „haszowania”. Czy użyłbyś algorytmu MD5 do podpisywania plików? Odpowiedź uzasadnij.
+
+## Zadanie 5.6. Nieodwracalność kontra odporność na kolizje

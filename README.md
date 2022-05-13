@@ -114,7 +114,7 @@ MD5(testowy.txt)= dc43c964e028c01632e52f3836dfdd7c
 SHA256(testowy.txt)= 13e2205488a3c7ecd382ebcdc564e1a7a06f92e77f5580a6980f03777e2aeb91
  ```
 ### P.5.6. Proszę przeanalizować otrzymane wyniki i odpowiedzieć w sprawozdaniu na pytanie czy H1 oraz H2 są podobne czy też nie. Odpowiedź należy uzasadnić.
-Dla obu przypadków hashe były różne. Licząc "sumę" kontrolną prawdopodobiństwo otrzymania identycznych sum dla różnych plików jest bliskie zeru
+Dla obu przypadków hashe były różne. Licząc sumę kontrolną prawdopodobiństwo otrzymania identycznych sum przy zamianie tylko jednego losowego bitu jest bliskie zeru
 ### P.5.7. Proszę napisać program obliczający ile jest zgodnych bitów w H1 oraz H2
 
 ## Zadanie 5.5. Bezpieczeństwo funkcji skrótu
@@ -135,7 +135,7 @@ SHA256(letter_of_rec.ps)= de4e4c6e2b94e95a3c5bd72a9a6af29bc5f83bf759325d9921943a
 SHA256(order.ps)= 077046dd66015e05c3e03a43a6e4de129038e0701de5a4103fc7ed91c3782d06
 Hashe są różne
 ```
-### P.5.8. Czy pliki po rozpakowaniu się różnią? Zamieść odpowiednie zrzuty z wygenerowanymiwartościami funkcji skrótu. Omów czy otrzymane z plików wartości funkcji skrótu dla danych algorytmów są takie same czy różne? Omów wpływ stosowania algorytmów starszego typu na poziom bezpieczeństwa „haszowania”. Czy użyłbyś algorytmu MD5 do podpisywania plików? Odpowiedź uzasadnij.
+### P.5.8. Czy pliki po rozpakowaniu się różnią? Zamieść odpowiednie zrzuty z wygenerowanymi wartościami funkcji skrótu. Omów czy otrzymane z plików wartości funkcji skrótu dla danych algorytmów są takie same czy różne? Omów wpływ stosowania algorytmów starszego typu na poziom bezpieczeństwa „haszowania”. Czy użyłbyś algorytmu MD5 do podpisywania plików? Odpowiedź uzasadnij.
 
 Na bazie tych dwóch plików można stwierdzić że algorytm MD5 jest podatny na kolizje. Co za tym idzie można wygenerować różne pliki o identycznych sumach kontrolnych przez co MD5 okazuje się dość słabym algorytmem. Ze względów bezpieczeństwa lepiej było by użyć bardziej współczesnego algorytmu.
 ## Zadanie 5.6. Nieodwracalność kontra odporność na kolizje

@@ -67,7 +67,45 @@ student@localhost:~> ssh 10.16.107.30
 student@10.16.107.30: Permission denied (publickey).
 ```
 # 3. Utwórz wiadomość (banner) pojawiający się w momencie logowania do serwera)
+``` ssh_banner
+Unauthorized access to this device is prohibited!
+```
+``` sshd_config
+# no default banner path
+Banner /etc/ssh/ssh_banner
+```
+``` terminal (host(SUSE))
+student@localhost:~> ssh 10.16.107.30
+Unauthorized access to this device is prohibited!
+student@10.16.107.30's password: 
+```
 # 4. Opisz dostępne opcje związane z kryptografią klucza publicznego i prywatnego. Zaimplementuj na serwerze rozwiązanie z nim związane. a. Na maszynie klienta (Windows) zainstaluj klienta (putty), na maszynie klienta wygeneruj klucze dla użytkownika student (puttygen) umieścić klucz publiczny na serwerze zrestartuj serwer SSH, sprawdź możliwość zalogowania się na serwerze.
+```
+student@localhost:~> ssh-keygen -help
+Enter file in which the key is (/home/student/.ssh/id_rsa): ^C
+student@localhost:~> man ssh-keygen 
+student@localhost:~> ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/student/.ssh/id_rsa): my_keys
+Enter passphrase (empty for no passphrase): (paranoid)
+Enter same passphrase again: (paranoid)
+Your identification has been saved in my_keys
+Your public key has been saved in my_keys.pub
+The key fingerprint is:
+SHA256:2VYlHDx0X7ic4jevrsYaPA4dTbYzBGMRgb10oWxGNCc student@localhost
+The key's randomart image is:
++---[RSA 3072]----+
+|         +EB*oo..|
+|        .+oB=+...|
+|         .=o=o o.|
+|         =.*..+  |
+|        S +.=.   |
+|         + ..oo  |
+|        . =. . o |
+|         o oo   .|
+|          oo.oo. |
++----[SHA256]-----+
+```
 # 5. Opisz opcję „forwarding” wraz z przykładem jej zastosowania. Zademonstruj użycie tunelowania. (programem nestat wykaż otwarte porty na maszynie kliencie). 
 Omów różnice i przykłady zastosowań dla*
 - local port forwarding

@@ -48,10 +48,23 @@ Include /etc/ssh/sshd_config.d/*.conf
 
 ```
 # 2. Opisz i przetestuj opcję Disable Password Authentication
-```
+``` sshd_config
 # To disable tunneled clear text passwords, change to no here!
 PasswordAuthentication no
 #PermitEmptyPasswords no
+```
+``` terminal (host(SUSE))
+student@LabVM:/etc/ssh$ systemctl reload sshd.service 
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to reload 'ssh.service'.
+Authenticating as: student,,, (student)
+Password: 
+==== AUTHENTICATION COMPLETE ===
+student@LabVM:/etc/ssh$ exit
+logout
+Connection to 10.16.107.30 closed.
+student@localhost:~> ssh 10.16.107.30
+student@10.16.107.30: Permission denied (publickey).
 ```
 # 3. Utwórz wiadomość (banner) pojawiający się w momencie logowania do serwera)
 # 4. Opisz dostępne opcje związane z kryptografią klucza publicznego i prywatnego. Zaimplementuj na serwerze rozwiązanie z nim związane. a. Na maszynie klienta (Windows) zainstaluj klienta (putty), na maszynie klienta wygeneruj klucze dla użytkownika student (puttygen) umieścić klucz publiczny na serwerze zrestartuj serwer SSH, sprawdź możliwość zalogowania się na serwerze.

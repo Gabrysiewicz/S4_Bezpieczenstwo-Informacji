@@ -80,7 +80,7 @@ Unauthorized access to this device is prohibited!
 student@10.16.107.30's password: 
 ```
 # 4. Opisz dostępne opcje związane z kryptografią klucza publicznego i prywatnego. Zaimplementuj na serwerze rozwiązanie z nim związane. a. Na maszynie klienta (Windows) zainstaluj klienta (putty), na maszynie klienta wygeneruj klucze dla użytkownika student (puttygen) umieścić klucz publiczny na serwerze zrestartuj serwer SSH, sprawdź możliwość zalogowania się na serwerze.
-```
+``` terminal
 student@localhost:~> ssh-keygen -help
 Enter file in which the key is (/home/student/.ssh/id_rsa): ^C
 student@localhost:~> man ssh-keygen 
@@ -105,6 +105,19 @@ The key's randomart image is:
 |         o oo   .|
 |          oo.oo. |
 +----[SHA256]-----+
+student@localhost:~> cat /home/student/.ssh/id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDcX/doLEmwDSqc8YoCfBFVK6JjMB5WeoPGpv7Yqj0Yf+etIoeCB/WbQJbWBvnXnPUrxA+qnbqKpdC5xtN9llyHjg9i7WPhPiv02aHxTfgnD88YpeOo0lqGtJ0IdqMyOnTKfNVZGSYKjnsORmjr88twXHI40sbLlnXUr6nxR5YawJj32WdY1wMATedpEaSmPZp94Vqksrq9qIjXNKvK05D/IwAKqIn4LwrGvbcwsNxebM8721+GcJJjqryz8QRUZH3eZk+7TsCfQ8VUBzQg3+gOhwtlecD/T7H/JE62WhywrZE+G5Yfm4lxHYqQqeKiHpAXDEmxI/4Lu+HPzu5juq1EA/zThg8trFbU7LT1nSsv2vuYJYdPTRddlcokswpmDNWUzsGqNAvxAOEgY1H/PODnZ8vjk2xmZTJb5S9m451vJ2INu/i+jGn0mV42rwnPy5W0Q1Vpjs7dTNUQRUXWGzVnTG9mY9XPIe279DtLNNgPreUmNe4RnlWlBySa8gyhh98= student@localhost
+```
+``` sshd_config (server)
+HostKey /etc/ssh/ssh_host_rsa_key
+#HostKey /etc/ssh/ssh_host_ecdsa_key
+#HostKey /etc/ssh/ssh_host_ed25519_key
+
+PubkeyAuthentication yes
+
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication no
+#PermitEmptyPasswords no
 ```
 # 5. Opisz opcję „forwarding” wraz z przykładem jej zastosowania. Zademonstruj użycie tunelowania. (programem nestat wykaż otwarte porty na maszynie kliencie). 
 Omów różnice i przykłady zastosowań dla*

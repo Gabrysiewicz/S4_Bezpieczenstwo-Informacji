@@ -1,10 +1,12 @@
 <h1 align='center'>SSH</h1>
 
-# 1. Opisz do czego służy z protokół SSH. Jeżeli serwer ssh nie jest zainstalowany na maszynie wirtualnej zainstaluj go - opisz kroki niezbędne w celu instalacji, podaj nazwę i lokalizację pliku zawierającego konfigurację serwera SSH (podaj fragment jego zawartości)
-### Protokol ssh sluzy do bezpiecznego logowania sie do powloki systemowej innego klienta/uzytkownika/komputera/servera (urzadzenia udostepniajacego usluge ssh)
+## 1. Opisz do czego służy z protokół SSH. Jeżeli serwer ssh nie jest zainstalowany na maszynie wirtualnej zainstaluj go - opisz kroki niezbędne w celu instalacji, podaj nazwę i lokalizację pliku zawierającego konfigurację serwera SSH (podaj fragment jego zawartości)
+### Protokol ssh sluzy do bezpiecznego logowania sie przy pomocy IP do powloki systemowej innego klienta/uzytkownika/komputera/servera (urzadzenia udostepniajacego usluge ssh)
+### Instalacja Servera ssh
 ```
 sudo apt-get install openssh-server
 ```
+### Lokalizacja i zawartość plików konfiguracyjnych /etc/ssh
 ```
 student@LabVM:/etc/ssh$ ls -la
 total 584
@@ -23,6 +25,7 @@ drwxr-xr-x   2 root root   4096 gru  2 23:38 sshd_config.d
 -rw-r--r--   1 root root    564 maj 17 12:42 ssh_host_rsa_key.pub
 -rw-r--r--   1 root root    342 maj 17 12:42 ssh_import_id
 ```
+### Przykładowa zawartość sshd_config
 ```
 student@LabVM:/etc/ssh$ head -20 sshd_config
 #       $OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
@@ -47,79 +50,147 @@ Include /etc/ssh/sshd_config.d/*.conf
 #HostKey /etc/ssh/ssh_host_rsa_key
 
 ```
-# 2. Opisz i przetestuj opcję Disable Password Authentication
-``` sshd_config
+## 2. Opisz i przetestuj opcję Disable Password Authentication
+File : sshd_config 
+``` 
 # To disable tunneled clear text passwords, change to no here!
 PasswordAuthentication no
 #PermitEmptyPasswords no
 ```
-``` terminal (host(SUSE))
+Terminal: server
+```
 student@LabVM:/etc/ssh$ systemctl reload sshd.service 
-==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
-Authentication is required to reload 'ssh.service'.
-Authenticating as: student,,, (student)
-Password: 
-==== AUTHENTICATION COMPLETE ===
-student@LabVM:/etc/ssh$ exit
-logout
-Connection to 10.16.107.30 closed.
+```
+Terminal : host(SUSE)
+``` 
 student@localhost:~> ssh 10.16.107.30
 student@10.16.107.30: Permission denied (publickey).
 ```
-# 3. Utwórz wiadomość (banner) pojawiający się w momencie logowania do serwera)
-``` ssh_banner
+## 3. Utwórz wiadomość (banner) pojawiający się w momencie logowania do serwera)
+File : /etc/ssh/ssh_banner
+``` 
 Unauthorized access to this device is prohibited!
 ```
-``` sshd_config
+File : sshd_config 
+``` 
 # no default banner path
 Banner /etc/ssh/ssh_banner
 ```
-``` terminal (host(SUSE))
+Terminal : host(SUSE)
+``` 
 student@localhost:~> ssh 10.16.107.30
 Unauthorized access to this device is prohibited!
 student@10.16.107.30's password: 
 ```
-# 4. Opisz dostępne opcje związane z kryptografią klucza publicznego i prywatnego. Zaimplementuj na serwerze rozwiązanie z nim związane. a. Na maszynie klienta (Windows) zainstaluj klienta (putty), na maszynie klienta wygeneruj klucze dla użytkownika student (puttygen) umieścić klucz publiczny na serwerze zrestartuj serwer SSH, sprawdź możliwość zalogowania się na serwerze.
-``` terminal
-student@localhost:~> ssh-keygen -help
-Enter file in which the key is (/home/student/.ssh/id_rsa): ^C
-student@localhost:~> man ssh-keygen 
-student@localhost:~> ssh-keygen
+## 4. Opisz dostępne opcje związane z kryptografią klucza publicznego i prywatnego. Zaimplementuj na serwerze rozwiązanie z nim związane. Na maszynie klienta (Windows) zainstaluj klienta (putty), na maszynie klienta wygeneruj klucze dla użytkownika student (puttygen) umieścić klucz publiczny na serwerze zrestartuj serwer SSH, sprawdź możliwość zalogowania się na serwerze.
+### Automat
+1. Konfiguracja sshd_config na serwerze wciąż zakłada uwierzytelnienie hasłem.
+2. Generuje swoje klucze.
+```
+➜  .ssh ssh-keygen -t rsa 
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/student/.ssh/id_rsa): my_keys
-Enter passphrase (empty for no passphrase): (paranoid)
-Enter same passphrase again: (paranoid)
-Your identification has been saved in my_keys
-Your public key has been saved in my_keys.pub
+Enter file in which to save the key (/home/paranoid/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/paranoid/.ssh/id_rsa
+Your public key has been saved in /home/paranoid/.ssh/id_rsa.pub
 The key fingerprint is:
-SHA256:2VYlHDx0X7ic4jevrsYaPA4dTbYzBGMRgb10oWxGNCc student@localhost
+SHA256:871LGzbGOfMHMSrz6N+p/pzmlF1GmTuWB7n3CfJgC2M paranoid@Paranoid
 The key's randomart image is:
 +---[RSA 3072]----+
-|         +EB*oo..|
-|        .+oB=+...|
-|         .=o=o o.|
-|         =.*..+  |
-|        S +.=.   |
-|         + ..oo  |
-|        . =. . o |
-|         o oo   .|
-|          oo.oo. |
+|                 |
+|               .o|
+|              oo.|
+|              o+o|
+|        SE + o.B=|
+|        .o*o*.+=*|
+|          .*%.ooo|
+|          .+.%.o.|
+|         ..oB*O. |
 +----[SHA256]-----+
-student@localhost:~> cat /home/student/.ssh/id_rsa.pub 
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDcX/doLEmwDSqc8YoCfBFVK6JjMB5WeoPGpv7Yqj0Yf+etIoeCB/WbQJbWBvnXnPUrxA+qnbqKpdC5xtN9llyHjg9i7WPhPiv02aHxTfgnD88YpeOo0lqGtJ0IdqMyOnTKfNVZGSYKjnsORmjr88twXHI40sbLlnXUr6nxR5YawJj32WdY1wMATedpEaSmPZp94Vqksrq9qIjXNKvK05D/IwAKqIn4LwrGvbcwsNxebM8721+GcJJjqryz8QRUZH3eZk+7TsCfQ8VUBzQg3+gOhwtlecD/T7H/JE62WhywrZE+G5Yfm4lxHYqQqeKiHpAXDEmxI/4Lu+HPzu5juq1EA/zThg8trFbU7LT1nSsv2vuYJYdPTRddlcokswpmDNWUzsGqNAvxAOEgY1H/PODnZ8vjk2xmZTJb5S9m451vJ2INu/i+jGn0mV42rwnPy5W0Q1Vpjs7dTNUQRUXWGzVnTG9mY9XPIe279DtLNNgPreUmNe4RnlWlBySa8gyhh98= student@localhost
 ```
-``` sshd_config (server)
-HostKey /etc/ssh/ssh_host_rsa_key
-#HostKey /etc/ssh/ssh_host_ecdsa_key
-#HostKey /etc/ssh/ssh_host_ed25519_key
-
-PubkeyAuthentication yes
-
-# To disable tunneled clear text passwords, change to no here!
-PasswordAuthentication no
-#PermitEmptyPasswords no
+3. Umieszczam klucze na serwerze 
 ```
-# 5. Opisz opcję „forwarding” wraz z przykładem jej zastosowania. Zademonstruj użycie tunelowania. (programem nestat wykaż otwarte porty na maszynie kliencie). 
+➜  .ssh ssh-copy-id guest@192.168.8.104
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/paranoid/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+guest@192.168.8.104's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'guest@192.168.8.104'"
+and check to make sure that only the key(s) you wanted were added.
+```
+4. Na serwerze wyłączam autentykacje hasłem 
+5. Loguje się za pośrednitwem klucza
+```
+➜  .ssh ssh guest@192.168.8.104        
+Linux mx 4.19.0-16-amd64 #1 SMP Debian 4.19.181-1 (2021-03-19) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+No mail.
+```
+### Manual
+1. Konfiguracja sshd_config na serwerze wciąż zakłada uwierzytelnienie hasłem.
+2. Generuje swoje klucze.
+```
+➜  .ssh ssh-keygen -t rsa 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/paranoid/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/paranoid/.ssh/id_rsa
+Your public key has been saved in /home/paranoid/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:871LGzbGOfMHMSrz6N+p/pzmlF1GmTuWB7n3CfJgC2M paranoid@Paranoid
+The key's randomart image is:
++---[RSA 3072]----+
+|                 |
+|               .o|
+|              oo.|
+|              o+o|
+|        SE + o.B=|
+|        .o*o*.+=*|
+|          .*%.ooo|
+|          .+.%.o.|
+|         ..oB*O. |
++----[SHA256]-----+
+```
+3. Umieszczam swój klucz publiczny na serwerze w miejscu ~/.ssh
+```
+➜  .ssh scp id_rsa.pub guest@192.168.8.104:~/.ssh/ 
+guest@192.168.8.104's password: 
+id_rsa.pub                                                                                                                  100%  571     1.2MB/s   00:00 
+```
+4. Tworzę plik authorized_keys w ~/.ssh/
+```
+➜  .ssh touch authorized_keys
+```
+5. Umieszczam swój klucz publiczny w pliku authorized_keys
+```
+➜  .ssh cat id_rsa.pub >> authorized_keys 
+```
+6. Na serwerze wyłączam autentykacje hasłem 
+7. Loguje się za pośrednitwem klucza
+```
+➜  .ssh ssh guest@192.168.8.104
+Linux mx 4.19.0-16-amd64 #1 SMP Debian 4.19.181-1 (2021-03-19) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+No mail.
+```
+## 5. Opisz opcję „forwarding” wraz z przykładem jej zastosowania. Zademonstruj użycie tunelowania. (programem nestat wykaż otwarte porty na maszynie kliencie). 
 Omów różnice i przykłady zastosowań dla*
 - local port forwarding
 - remote port forwarding

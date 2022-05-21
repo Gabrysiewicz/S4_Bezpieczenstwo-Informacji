@@ -68,7 +68,7 @@ Terminal : host(SUSE)
 student@localhost:~> ssh 10.16.107.30
 student@10.16.107.30: Permission denied (publickey).
 ```
-## 3. Utwórz wiadomość (banner) pojawiający się w momencie logowania do serwera)
+## 3. Utwórz wiadomość (banner) pojawiający się w momencie logowania do serwera
 File : /etc/ssh/ssh_banner
 ``` 
 Unauthorized access to this device is prohibited!

@@ -51,6 +51,8 @@ Include /etc/ssh/sshd_config.d/*.conf
 
 ```
 ## 2. Opisz i przetestuj opcję Disable Password Authentication
+Opcja:  PasswordAuthentication no
+uniemożliwia logowianie się do ssh za pośrednictwem hasła
 File : sshd_config 
 ``` 
 # To disable tunneled clear text passwords, change to no here!

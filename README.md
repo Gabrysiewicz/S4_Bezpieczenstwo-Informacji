@@ -216,3 +216,8 @@ AgNJADBGAiEA+m5EBYb9E8WT+NFH5XOcT5RDKZlgfbYwFKXVQNSey0gCIQCAvQy7
 EgUMiLEXG+AMPPr4pjVZrQghWHZ7qbg79xpsIw==
 -----END CERTIFICATE-----
 ```
+| Część | Opis | Efekt |
+| --- | --- | --- |
+| EC Parameters | Opis | unable to load server certificate private key file |
+| EC PRIVATE KEY | Opis | unable to load server certificate private key file |
+| CERTIFICATE | Opis | unable to load certificate |

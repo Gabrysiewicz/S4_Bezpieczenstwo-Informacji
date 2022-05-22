@@ -188,7 +188,10 @@ cspollubpl openssl s_server -cert pollub.pem -www
 Using default temp DH parameters
 ACCEPT
 ```
-ZDJ
+![alt text](https://github.com/Gabrysiewicz/BI-Szyfry/blob/ssl/certificate.png)
+![alt text](https://github.com/Gabrysiewicz/BI-Szyfry/blob/ssl/certificate2.png)
+![alt text](https://github.com/Gabrysiewicz/BI-Szyfry/blob/ssl/certificate3.png)
+
 
 ### P.6.3. Określ, z jakich elementów składa sie plik certyfikatu (*.pem) i jak wpływa modyfikacja bitów w poszczególnych elementach tegoż pliku na działanie serwera. Zmodyfikuj pojedyńczy bit w pliku server.pem przy użyciu edytora Hex. Uruchom ponownie serwer i przeładuj zawartość udostępnianej przez niego strony. Wyniki zamieść w tabeli zawierającej trzy kolumny: element pliku pem, opis elementu, opis wpływu modyfikacji bitu w tym elemencie na działanie serwera.
 ```

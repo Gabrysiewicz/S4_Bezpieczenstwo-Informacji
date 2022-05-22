@@ -221,3 +221,21 @@ EgUMiLEXG+AMPPr4pjVZrQghWHZ7qbg79xpsIw==
 | EC Parameters | Opis | unable to load server certificate private key file |
 | EC PRIVATE KEY | Opis | unable to load server certificate private key file |
 | CERTIFICATE | Opis | unable to load certificate |
+
+### P.6.4. Przywróć poprawną postać certyfikatu serwera, uruchom ponownie serwer, a następnie wyświetl stronę WWW korzystając z adresu https://localhost:4433. Jaki jest efekt? Wyjaśnij, co sie stało. 
+
+Certyfikat wystawiony na bi.cs.pollub.pl nie obowiązuje dla localhost 
+Serwer informuje o 'alert bad certificate' i alert number 42
+Natomiast przeglądarka o tym że wystawiony certyfikat nie jest właściwy dla localhost:4433
+
+### P.6.5. W celu określenia czasu szyfrowania i deszyfrowania skorzystaj z systemowego polecenia "time". Jako wynik zapisz sumy czasów user+sys. W celu zminimalizowania błędów napisz skrypt realizujący 100 powtórzeń dla każdej operacji mierząc w ten sposób czas jej wielokrotnego wykonania, następnie podaj wyniki średnie dla każdej operacji. Przedstaw je w postaci umożliwiającej porównanie wydajności np. obliczając ilość danych przetwarzanych w ciągu jednej sekundy. Opracuj zestawienie uzyskanych wyników w formie tabeli. Sporządź wykresy dla uzyskanych wyników.
+
+| File | Mode | Time |
+| --- | --- | --- |
+| 10B | Encryption | --- |
+| 200B | Encryption | --- |
+| 10M | Encryption | --- |
+| 10B | Decryption | --- |
+| 200B | Decryption | --- |
+| 10M | Decryption | --- |
+

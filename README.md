@@ -132,12 +132,12 @@ Certificate:
 Using default temp DH parameters
 ACCEPT
 ```
-<h1 align='center'> P.6.1. Opisz i wyjaśnij swoje obserwacje. Co się stało i dlaczego?
-Przeglądarka przyjeła wygenerowany cerfyfikat ale go nie rozpoznała.  </h1>
+<h2 align='center'> P.6.1. Opisz i wyjaśnij swoje obserwacje. Co się stało i dlaczego?
+Przeglądarka przyjeła wygenerowany cerfyfikat ale go nie rozpoznała.  </h2>
 
 Stało się tak ponieważ certyfikat był poprawny ale twórcy przeglądarki zapewne ze względów bezpieczeństwa korzystają tylko z kilku głównych/największych TTS'ów a nasz certyfikat nie ma autoryzacji z ich strony dlatego mimo zatwierdzenia certyfikatu przeglądarka zamieszcza notę że nie rozpoznaje owego certyfikatu
 
-<h1 align='center'>  P.6.2. Wygeneruj i certyfikuj certyfikat dla serwera bi.cs.pollub.pl. W sprawozdaniu zamieść użyte polecenia oraz zrzut ekranu prezentujący odpowiedź uruchomionego serwera w przeglądarce </h1>
+<h2 align='center'>  P.6.2. Wygeneruj i certyfikuj certyfikat dla serwera bi.cs.pollub.pl. W sprawozdaniu zamieść użyte polecenia oraz zrzut ekranu prezentujący odpowiedź uruchomionego serwera w przeglądarce </h2>
 
 Postąpiłem identycznie do poprzednich zadań tyle że plik csr wystylizowałem na zgodny z bi.cs.pollub.pl
 
@@ -198,7 +198,7 @@ ACCEPT
 ![alt text](https://github.com/Gabrysiewicz/BI-Szyfry/blob/ssl/certificate3.png)
 
 
-<h1 align='center'> P.6.3. Określ, z jakich elementów składa sie plik certyfikatu (*.pem) i jak wpływa modyfikacja bitów w poszczególnych elementach tegoż pliku na działanie serwera. Zmodyfikuj pojedyńczy bit w pliku server.pem przy użyciu edytora Hex. Uruchom ponownie serwer i przeładuj zawartość udostępnianej przez niego strony. Wyniki zamieść w tabeli zawierającej trzy kolumny: element pliku pem, opis elementu, opis wpływu modyfikacji bitu w tym elemencie na działanie serwera. </h1>
+<h3 align='center'> P.6.3. Określ, z jakich elementów składa sie plik certyfikatu (*.pem) i jak wpływa modyfikacja bitów w poszczególnych elementach tegoż pliku na działanie serwera. Zmodyfikuj pojedyńczy bit w pliku server.pem przy użyciu edytora Hex. Uruchom ponownie serwer i przeładuj zawartość udostępnianej przez niego strony. Wyniki zamieść w tabeli zawierającej trzy kolumny: element pliku pem, opis elementu, opis wpływu modyfikacji bitu w tym elemencie na działanie serwera. </h3>
 
 ```
 ➜  cspollubpl cat pollub.pem 
@@ -231,13 +231,13 @@ EgUMiLEXG+AMPPr4pjVZrQghWHZ7qbg79xpsIw==
 | EC PRIVATE KEY | Służy do generowania podpisów na danych przy użyciu algorytmu ECDSA oraz do generowania wspólnych sekretów przy użyciu algorytmu ECDH | unable to load server certificate private key file |
 | CERTIFICATE | To jest certyfikat w formacie pem, który jest opakowaniem klucza publicznego i może być rozpowszechniany | unable to load certificate |
 
-<h1 align='center'> P.6.4. Przywróć poprawną postać certyfikatu serwera, uruchom ponownie serwer, a następnie wyświetl stronę WWW korzystając z adresu https://localhost:4433. Jaki jest efekt? Wyjaśnij, co sie stało. </h1>
+<h2 align='center'> P.6.4. Przywróć poprawną postać certyfikatu serwera, uruchom ponownie serwer, a następnie wyświetl stronę WWW korzystając z adresu https://localhost:4433. Jaki jest efekt? Wyjaśnij, co sie stało. </h2>
 
 Certyfikat wystawiony na bi.cs.pollub.pl nie obowiązuje dla localhost 
 Serwer informuje o 'alert bad certificate' i alert number 42
 Natomiast przeglądarka o tym że wystawiony certyfikat nie jest właściwy dla localhost:4433
 
-<h1 align='center'> P.6.5. W celu określenia czasu szyfrowania i deszyfrowania skorzystaj z systemowego polecenia "time". Jako wynik zapisz sumy czasów user+sys. W celu zminimalizowania błędów napisz skrypt realizujący 100 powtórzeń dla każdej operacji mierząc w ten sposób czas jej wielokrotnego wykonania, następnie podaj wyniki średnie dla każdej operacji. Przedstaw je w postaci umożliwiającej porównanie wydajności np. obliczając ilość danych przetwarzanych w ciągu jednej sekundy. Opracuj zestawienie uzyskanych wyników w formie tabeli. Sporządź wykresy dla uzyskanych wyników. </h1>
+<h3 align='center'> P.6.5. W celu określenia czasu szyfrowania i deszyfrowania skorzystaj z systemowego polecenia "time". Jako wynik zapisz sumy czasów user+sys. W celu zminimalizowania błędów napisz skrypt realizujący 100 powtórzeń dla każdej operacji mierząc w ten sposób czas jej wielokrotnego wykonania, następnie podaj wyniki średnie dla każdej operacji. Przedstaw je w postaci umożliwiającej porównanie wydajności np. obliczając ilość danych przetwarzanych w ciągu jednej sekundy. Opracuj zestawienie uzyskanych wyników w formie tabeli. Sporządź wykresy dla uzyskanych wyników. </h3>
 
 | File | Mode | Time (s) |
 | --- | --- | --- |
@@ -268,7 +268,7 @@ Natomiast przeglądarka o tym że wystawiony certyfikat nie jest właściwy dla 
 | rsa | 7680 bits | 0.067793s | 0.000427s | 14.8 | 2343.9 |
 | rsa | 15360 bits | 0.402000s | 0.001682s | 2.5 | 594.7 |
 
-<h1 align='center'> P.6.7. Udokumentuj poprawność przeprowadzonego ćwiczenia i opisz uzyskane wyniki. Omów jak wpływa modyfikacja wiadomości na weryfikację podpisu cyfrowego. </h1>
+<h2 align='center'> P.6.7. Udokumentuj poprawność przeprowadzonego ćwiczenia i opisz uzyskane wyniki. Omów jak wpływa modyfikacja wiadomości na weryfikację podpisu cyfrowego. </h2>
 
 ```
 ➜  podpis openssl genrsa -aes256 -out private.key 1024

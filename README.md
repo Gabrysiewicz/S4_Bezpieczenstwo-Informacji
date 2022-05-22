@@ -268,7 +268,7 @@ Natomiast przeglądarka o tym że wystawiony certyfikat nie jest właściwy dla 
 | rsa | 7680 bits | 0.067793s | 0.000427s | 14.8 | 2343.9 |
 | rsa | 15360 bits | 0.402000s | 0.001682s | 2.5 | 594.7 |
 
-<h2 align='center'> P.6.7. Udokumentuj poprawność przeprowadzonego ćwiczenia i opisz uzyskane wyniki. Omów jak wpływa modyfikacja wiadomości na weryfikację podpisu cyfrowego. </h2>
+<h3 align='center'> P.6.7. Udokumentuj poprawność przeprowadzonego ćwiczenia i opisz uzyskane wyniki. Omów jak wpływa modyfikacja wiadomości na weryfikację podpisu cyfrowego. </h3>
 
 ```
 ➜  podpis openssl genrsa -aes256 -out private.key 1024

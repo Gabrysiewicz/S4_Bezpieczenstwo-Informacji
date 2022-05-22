@@ -30,7 +30,8 @@ An optional company name []:Polibuda
 ```
 ➜  server openssl x509 -req -sha256 -days 365 -in ca.csr -signkey ca.key -out ca.crt
 Signature ok
-subject=C = PL, ST = Lubleskie, L = Lublin, O = Polibuda, OU = Polibuda, CN = Polibuda, emailAddress = Poli@bu.da
+subject=C = PL, ST = Lubleskie, L = Lublin, O = Polibuda, OU = Polibuda,
+CN = Polibuda, emailAddress = Poli@bu.da
 Getting Private key
 ```
 ```

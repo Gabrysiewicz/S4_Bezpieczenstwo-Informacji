@@ -1,6 +1,6 @@
 <h1 align='center'>SSL</h1>
 
-### Zadanie 6.1. Utworzenie głównego urzędu certyfikacji CA
+<h1 align='center'> Zadanie 6.1. Utworzenie głównego urzędu certyfikacji CA </h1>
 
 ```
 ➜  server openssl ecparam -out ca.key -name prime256v1 -genkey
@@ -59,7 +59,9 @@ Certificate Request:
          4c:02:21:00:d8:3b:b8:41:0b:88:eb:ca:2f:ae:8a:56:5c:37:
          98:ca:80:32:e8:fa:9d:23:c2:00:9f:6c:fb:3b:67:53:40:29
 ```
-### Zadanie 6.2. Utworzenie certyfikatu dla organizacji
+
+<h1 align='center'>  Zadanie 6.2. Utworzenie certyfikatu dla organizacji </h1>
+
 ```
 ➜  server openssl ecparam -out server.key -name prime256v1 -genkey
 ➜  server openssl req -new -sha256 -key server.key -out server.csr 
@@ -120,7 +122,7 @@ Certificate:
          55:64:ed:87:b9:e3:38:46:b0:58:f6:fe:f9:5b:ce:fb:55:c4
 ```
 
-### Zadanie 6.3. Zastosowanie infrastruktury klucza publicznego do stron WWW
+<h1 align='center'>  Zadanie 6.3. Zastosowanie infrastruktury klucza publicznego do stron WWW </h1>
 
 ```
 ➜  server sudo nano /etc/hosts
@@ -130,12 +132,15 @@ Certificate:
 Using default temp DH parameters
 ACCEPT
 ```
-### P.6.1. Opisz i wyjaśnij swoje obserwacje. Co się stało i dlaczego?
-Przeglądarka przyjeła wygenerowany cerfyfikat ale go nie rozpoznała.
+<h1 align='center'> P.6.1. Opisz i wyjaśnij swoje obserwacje. Co się stało i dlaczego?
+Przeglądarka przyjeła wygenerowany cerfyfikat ale go nie rozpoznała.  </h1>
+
 Stało się tak ponieważ certyfikat był poprawny ale twórcy przeglądarki zapewne ze względów bezpieczeństwa korzystają tylko z kilku głównych/największych TTS'ów a nasz certyfikat nie ma autoryzacji z ich strony dlatego mimo zatwierdzenia certyfikatu przeglądarka zamieszcza notę że nie rozpoznaje owego certyfikatu
 
-### P.6.2. Wygeneruj i certyfikuj certyfikat dla serwera bi.cs.pollub.pl. W sprawozdaniu zamieść użyte polecenia oraz zrzut ekranu prezentujący odpowiedź uruchomionego serwera w przeglądarce
+<h1 align='center'>  P.6.2. Wygeneruj i certyfikuj certyfikat dla serwera bi.cs.pollub.pl. W sprawozdaniu zamieść użyte polecenia oraz zrzut ekranu prezentujący odpowiedź uruchomionego serwera w przeglądarce </h1>
+
 Postąpiłem identycznie do poprzednich zadań tyle że plik csr wystylizowałem na zgodny z bi.cs.pollub.pl
+
 ```
 ➜  cspollubpl openssl x509 -in pollub.crt -text -noout 
 Certificate:
@@ -193,7 +198,8 @@ ACCEPT
 ![alt text](https://github.com/Gabrysiewicz/BI-Szyfry/blob/ssl/certificate3.png)
 
 
-### P.6.3. Określ, z jakich elementów składa sie plik certyfikatu (*.pem) i jak wpływa modyfikacja bitów w poszczególnych elementach tegoż pliku na działanie serwera. Zmodyfikuj pojedyńczy bit w pliku server.pem przy użyciu edytora Hex. Uruchom ponownie serwer i przeładuj zawartość udostępnianej przez niego strony. Wyniki zamieść w tabeli zawierającej trzy kolumny: element pliku pem, opis elementu, opis wpływu modyfikacji bitu w tym elemencie na działanie serwera.
+<h1 align='center'> P.6.3. Określ, z jakich elementów składa sie plik certyfikatu (*.pem) i jak wpływa modyfikacja bitów w poszczególnych elementach tegoż pliku na działanie serwera. Zmodyfikuj pojedyńczy bit w pliku server.pem przy użyciu edytora Hex. Uruchom ponownie serwer i przeładuj zawartość udostępnianej przez niego strony. Wyniki zamieść w tabeli zawierającej trzy kolumny: element pliku pem, opis elementu, opis wpływu modyfikacji bitu w tym elemencie na działanie serwera. </h1>
+
 ```
 ➜  cspollubpl cat pollub.pem 
 -----BEGIN EC PARAMETERS-----
@@ -225,13 +231,13 @@ EgUMiLEXG+AMPPr4pjVZrQghWHZ7qbg79xpsIw==
 | EC PRIVATE KEY | Służy do generowania podpisów na danych przy użyciu algorytmu ECDSA oraz do generowania wspólnych sekretów przy użyciu algorytmu ECDH | unable to load server certificate private key file |
 | CERTIFICATE | To jest certyfikat w formacie pem, który jest opakowaniem klucza publicznego i może być rozpowszechniany | unable to load certificate |
 
-### P.6.4. Przywróć poprawną postać certyfikatu serwera, uruchom ponownie serwer, a następnie wyświetl stronę WWW korzystając z adresu https://localhost:4433. Jaki jest efekt? Wyjaśnij, co sie stało. 
+<h1 align='center'> P.6.4. Przywróć poprawną postać certyfikatu serwera, uruchom ponownie serwer, a następnie wyświetl stronę WWW korzystając z adresu https://localhost:4433. Jaki jest efekt? Wyjaśnij, co sie stało. </h1>
 
 Certyfikat wystawiony na bi.cs.pollub.pl nie obowiązuje dla localhost 
 Serwer informuje o 'alert bad certificate' i alert number 42
 Natomiast przeglądarka o tym że wystawiony certyfikat nie jest właściwy dla localhost:4433
 
-### P.6.5. W celu określenia czasu szyfrowania i deszyfrowania skorzystaj z systemowego polecenia "time". Jako wynik zapisz sumy czasów user+sys. W celu zminimalizowania błędów napisz skrypt realizujący 100 powtórzeń dla każdej operacji mierząc w ten sposób czas jej wielokrotnego wykonania, następnie podaj wyniki średnie dla każdej operacji. Przedstaw je w postaci umożliwiającej porównanie wydajności np. obliczając ilość danych przetwarzanych w ciągu jednej sekundy. Opracuj zestawienie uzyskanych wyników w formie tabeli. Sporządź wykresy dla uzyskanych wyników.
+<h1 align='center'> P.6.5. W celu określenia czasu szyfrowania i deszyfrowania skorzystaj z systemowego polecenia "time". Jako wynik zapisz sumy czasów user+sys. W celu zminimalizowania błędów napisz skrypt realizujący 100 powtórzeń dla każdej operacji mierząc w ten sposób czas jej wielokrotnego wykonania, następnie podaj wyniki średnie dla każdej operacji. Przedstaw je w postaci umożliwiającej porównanie wydajności np. obliczając ilość danych przetwarzanych w ciągu jednej sekundy. Opracuj zestawienie uzyskanych wyników w formie tabeli. Sporządź wykresy dla uzyskanych wyników. </h1>
 
 | File | Mode | Time (s) |
 | --- | --- | --- |
@@ -242,7 +248,7 @@ Natomiast przeglądarka o tym że wystawiony certyfikat nie jest właściwy dla 
 | 200B | Decryption | 0 |
 | 10M | Decryption | 0.05 |
 
-### P.6.6. Przedstaw wyniki analogicznie do tych z P. 6.5. Porównaj je ze sobą i skomentuj.
+<h1 align='center'> P.6.6. Przedstaw wyniki analogicznie do tych z P. 6.5. Porównaj je ze sobą i skomentuj. </h1>
 
 ### Średni czas : 3s
 | Type | 16 Bytes | 64 Bytes | 256 Bytes | 1024 Bytes | 8192 Bytes | 16384 Bytes |
@@ -262,7 +268,7 @@ Natomiast przeglądarka o tym że wystawiony certyfikat nie jest właściwy dla 
 | rsa | 7680 bits | 0.067793s | 0.000427s | 14.8 | 2343.9 |
 | rsa | 15360 bits | 0.402000s | 0.001682s | 2.5 | 594.7 |
 
-### P.6.7. Udokumentuj poprawność przeprowadzonego ćwiczenia i opisz uzyskane wyniki. Omów jak wpływa modyfikacja wiadomości na weryfikację podpisu cyfrowego.
+<h1 align='center'> P.6.7. Udokumentuj poprawność przeprowadzonego ćwiczenia i opisz uzyskane wyniki. Omów jak wpływa modyfikacja wiadomości na weryfikację podpisu cyfrowego. </h1>
 
 ```
 ➜  podpis openssl genrsa -aes256 -out private.key 1024

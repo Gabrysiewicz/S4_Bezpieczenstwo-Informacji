@@ -3,10 +3,10 @@
 ## Zadanie 6.1. Utworzenie głównego urzędu certyfikacji CA
 
 ```
-➜  ZXC openssl ecparam -out ca.key -name prime256v1 -genkey
+➜  server openssl ecparam -out ca.key -name prime256v1 -genkey
 ```
 ```
-➜  ZXC openssl req -new -sha256 -key ca.key -out ca.csr
+➜  server openssl req -new -sha256 -key ca.key -out ca.csr
 You are about to be asked to enter information that will be incorporated
 into your certificate request.
 What you are about to enter is what is called a Distinguished Name or a DN.
@@ -15,58 +15,54 @@ For some fields there will be a default value,
 If you enter '.', the field will be left blank.
 -----
 Country Name (2 letter code) [AU]:PL
-State or Province Name (full name) [Some-State]:Lubelskie
+State or Province Name (full name) [Some-State]:Lubleskie
 Locality Name (eg, city) []:Lublin
-Organization Name (eg, company) [Internet Widgits Pty Ltd]:Politechnika
-Organizational Unit Name (eg, section) []:PL
-Common Name (e.g. server FQDN or YOUR name) []:ZXC
-Email Address []:ZXC@zxc.ZXc
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Polibuda
+Organizational Unit Name (eg, section) []:Polibuda
+Common Name (e.g. server FQDN or YOUR name) []:Polibuda
+Email Address []:Poli@bu.da
 
 Please enter the following 'extra' attributes
 to be sent with your certificate request
-A challenge password []:guest
-An optional company name []:
+A challenge password []:Polibuda
+An optional company name []:Polibuda
 ```
 ```
-➜  ZXC openssl x509 -req -sha256 -days 365 -in ca.csr -signkey ca.key -out ca.csr 
+➜  server openssl x509 -req -sha256 -days 365 -in ca.csr -signkey ca.key -out ca.crt
 Signature ok
-subject=C = PL, ST = Lubelskie, L = Lublin, O = Politechnika, OU = PL, CN = ZXC, emailAddress = ZXC@zxc.ZXc
+subject=C = PL, ST = Lubleskie, L = Lublin, O = Polibuda, OU = Polibuda, CN = Polibuda, emailAddress = Poli@bu.da
 Getting Private key
 ```
 ```
-➜  ZXC openssl x509 -noout -text -in ca.csr
-Certificate:
+➜  server openssl req -noout -text -in ca.csr 
+Certificate Request:
     Data:
         Version: 1 (0x0)
-        Serial Number:
-            06:bd:d8:bd:0e:58:33:02:d2:1e:ee:fc:f6:93:fb:5e:30:92:30:05
-        Signature Algorithm: ecdsa-with-SHA256
-        Issuer: C = PL, ST = Lubelskie, L = Lublin, O = Politechnika, OU = PL, CN = ZXC, emailAddress = ZXC@zxc.ZXc
-        Validity
-            Not Before: May 21 20:53:57 2022 GMT
-            Not After : May 21 20:53:57 2023 GMT
-        Subject: C = PL, ST = Lubelskie, L = Lublin, O = Politechnika, OU = PL, CN = ZXC, emailAddress = ZXC@zxc.ZXc
+        Subject: C = PL, ST = Lubleskie, L = Lublin, O = Polibuda, OU = Polibuda, CN = Polibuda, emailAddress = Poli@bu.da
         Subject Public Key Info:
             Public Key Algorithm: id-ecPublicKey
                 Public-Key: (256 bit)
                 pub:
-                    04:f8:1f:01:3f:80:fc:ed:76:21:7e:47:46:4e:29:
-                    5e:f7:0e:2c:dd:19:48:1f:ac:7b:d6:64:4b:7f:b3:
-                    82:75:d8:5a:81:31:e8:6d:7e:aa:c6:d3:0e:c5:dc:
-                    ac:76:18:76:a2:14:00:a0:80:60:54:d2:2d:71:9f:
-                    ea:00:64:b8:de
+                    04:39:a1:dc:87:56:1b:5e:32:91:e3:bc:7f:d5:ab:
+                    68:fa:67:5f:63:24:00:00:88:60:c3:81:ee:79:62:
+                    05:94:16:be:cf:3f:3f:57:b2:c2:e6:22:d8:52:9c:
+                    af:01:7e:1b:40:ff:65:71:ce:d4:e8:b8:a2:d5:85:
+                    d3:c8:1c:a2:79
                 ASN1 OID: prime256v1
                 NIST CURVE: P-256
+        Attributes:
+            unstructuredName         :Polibuda
+            challengePassword        :Polibuda
     Signature Algorithm: ecdsa-with-SHA256
-         30:45:02:20:08:b0:76:c2:5f:dc:e7:71:2e:7a:f0:ca:a7:c1:
-         93:6c:f6:d0:71:5e:75:6d:07:e4:b8:55:82:cf:0f:f7:c3:66:
-         02:21:00:c3:c8:8b:58:10:88:c9:dd:b5:62:14:90:21:2a:4a:
-         7e:26:f0:6b:d0:d8:84:2d:13:49:48:cd:49:08:fa:7e:da
+         30:46:02:21:00:88:63:4f:33:fd:af:b1:df:12:6d:ba:07:7b:
+         1b:6d:84:11:b8:96:48:44:33:0f:8b:e0:30:a1:f0:a1:83:50:
+         4c:02:21:00:d8:3b:b8:41:0b:88:eb:ca:2f:ae:8a:56:5c:37:
+         98:ca:80:32:e8:fa:9d:23:c2:00:9f:6c:fb:3b:67:53:40:29
 ```
-## Zad 2
+## Zadanie 6.2. Utworzenie certyfikatu dla organizacji
 ```
-➜  ZXC openssl ecparam -out server.key -name prime256v1 -genkey 
-➜  ZXC openssl req -new -sha256 -key server.key -out server.csr 
+➜  server openssl ecparam -out server.key -name prime256v1 -genkey
+➜  server openssl req -new -sha256 -key server.key -out server.csr 
 You are about to be asked to enter information that will be incorporated
 into your certificate request.
 What you are about to enter is what is called a Distinguished Name or a DN.
@@ -78,48 +74,145 @@ Country Name (2 letter code) [AU]:PL
 State or Province Name (full name) [Some-State]:Lubelskie
 Locality Name (eg, city) []:Lublin
 Organization Name (eg, company) [Internet Widgits Pty Ltd]:Polibuda
-Organizational Unit Name (eg, section) []:PL
-Common Name (e.g. server FQDN or YOUR name) []:zxc
-Email Address []:zxc@zxc.zxc
+Organizational Unit Name (eg, section) []:Polibuda
+Common Name (e.g. server FQDN or YOUR name) []:Polibuda
+Email Address []:Poli@bu.da
 
 Please enter the following 'extra' attributes
 to be sent with your certificate request
-A challenge password []:guest
-An optional company name []:
+A challenge password []:Polibuda
+An optional company name []:Polibuda
 ```
 ```
-➜  ZXC openssl x509 -req -in server.csr -CA ca.csr -CAkey ca.key -CAcreateserial -out server.csr -days 365 -sha256 
+➜  server openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 365 -sha256 
 Signature ok
-subject=C = PL, ST = Lubelskie, L = Lublin, O = Polibuda, OU = PL, CN = zxc, emailAddress = zxc@zxc.zxc
+subject=C = PL, ST = Lubelskie, L = Lublin, O = Polibuda, OU = Polibuda, CN = Polibuda, emailAddress = Poli@bu.da
 Getting CA Private Key
 ```
 ```
-➜  ZXC openssl x509 -in server.csr -text -noout
+➜  server openssl x509 -in server.crt -text -noout
 Certificate:
     Data:
         Version: 1 (0x0)
         Serial Number:
-            17:4f:07:ff:37:66:57:a5:af:46:13:4a:b6:c2:78:3a:79:c9:56:63
+            4e:00:d7:fe:36:53:22:48:55:c2:73:25:a0:28:a5:45:64:79:50:66
         Signature Algorithm: ecdsa-with-SHA256
-        Issuer: C = PL, ST = Lubelskie, L = Lublin, O = Politechnika, OU = PL, CN = ZXC, emailAddress = ZXC@zxc.ZXc
+        Issuer: C = PL, ST = Lubleskie, L = Lublin, O = Polibuda, OU = Polibuda, CN = Polibuda, emailAddress = Poli@bu.da
         Validity
-            Not Before: May 21 21:14:02 2022 GMT
-            Not After : May 21 21:14:02 2023 GMT
-        Subject: C = PL, ST = Lubelskie, L = Lublin, O = Polibuda, OU = PL, CN = zxc, emailAddress = zxc@zxc.zxc
+            Not Before: May 22 16:11:00 2022 GMT
+            Not After : May 22 16:11:00 2023 GMT
+        Subject: C = PL, ST = Lubelskie, L = Lublin, O = Polibuda, OU = Polibuda, CN = Polibuda, emailAddress = Poli@bu.da
         Subject Public Key Info:
             Public Key Algorithm: id-ecPublicKey
                 Public-Key: (256 bit)
                 pub:
-                    04:c7:0a:f4:43:e7:1c:7b:f1:fb:04:cd:94:cf:6f:
-                    88:81:c6:c2:79:f6:b5:a7:93:fa:c1:c8:f1:01:3c:
-                    77:30:b7:e6:90:61:50:90:9f:78:20:d0:26:67:f2:
-                    c4:69:c5:cb:f3:2d:bd:89:06:e3:57:60:02:9c:38:
-                    0f:2a:ce:96:9b
+                    04:48:30:d6:2d:55:4b:8c:42:3f:86:b9:8e:1a:90:
+                    e1:3e:bd:a4:b8:3e:6b:0e:1e:63:3f:5f:ed:06:a8:
+                    7c:e6:5c:94:4d:07:cb:78:10:80:35:e2:5a:f7:b6:
+                    48:b3:f9:65:ac:13:98:79:42:a4:a9:67:4f:3c:8f:
+                    dc:7f:5e:8b:56
                 ASN1 OID: prime256v1
                 NIST CURVE: P-256
     Signature Algorithm: ecdsa-with-SHA256
-         30:45:02:20:1e:9a:c1:6f:88:e1:e9:46:ac:1c:83:ae:47:91:
-         82:ca:83:27:7d:f0:3c:74:c6:c9:ae:86:30:a2:a1:71:c5:99:
-         02:21:00:b4:7d:2f:6e:5e:f9:a3:eb:3d:33:ac:17:65:be:64:
-         cb:70:7f:43:19:fe:1f:90:b2:86:82:53:93:e9:97:02:73
+         30:46:02:21:00:d9:d4:d9:5e:38:62:29:60:ac:99:d7:d0:9c:
+         c8:d5:d7:6c:91:48:21:b6:6e:01:61:f0:b7:d9:d9:97:e8:4f:
+         66:02:21:00:db:de:88:8d:73:80:05:14:09:fe:91:60:4b:28:
+         55:64:ed:87:b9:e3:38:46:b0:58:f6:fe:f9:5b:ce:fb:55:c4
+```
+
+### Zadanie 6.3. Zastosowanie infrastruktury klucza publicznego do stron WWW
+
+```
+➜  server sudo nano /etc/hosts
+➜  server cp server.key server.pem
+➜  server cat server.crt >> server.pem 
+➜  server openssl s_server -cert server.pem -www
+Using default temp DH parameters
+ACCEPT
+```
+## P.6.1. Opisz i wyjaśnij swoje obserwacje. Co się stało i dlaczego?
+Przeglądarka przyjeła wygenerowany cerfyfikat ale go nie rozpoznała.
+Stało się tak ponieważ certyfikat był poprawny ale twórcy przeglądarki zapewne ze względów bezpieczeństwa korzystają tylko z kilku głównych/największych TTS'ów a nasz certyfikat nie ma autoryzacji z ich strony dlatego mimo zatwierdzenia certyfikaty przeglądara zamieszcza notę że nie rozpoznaje owego certyfikatu
+
+## P.6.2. Wygeneruj i certyfikuj certyfikat dla serwera bi.cs.pollub.pl. W sprawozdaniu zamieść użyte polecenia oraz zrzut ekranu prezentujący odpowiedź uruchomionego serwera w przeglądarce
+Postąpiłem identycznie do poprzednich zadań tyle że plik csr wystylizowałem na zgodny z bi.cs.pollub.pl
+```
+➜  cspollubpl openssl x509 -in pollub.crt -text -noout 
+Certificate:
+    Data:
+        Version: 1 (0x0)
+        Serial Number:
+            6e:a2:45:7c:73:26:98:32:56:d8:bd:12:68:09:6a:89:64:7c:3f:bf
+        Signature Algorithm: ecdsa-with-SHA256
+        Issuer: C = PL, ST = Lubelskie, L = Lublin, O = Politechnika Lubelska, OU = WEII, CN = bi.cs.pollub.pl, emailAddress = pollub.pl
+        Validity
+            Not Before: May 22 17:05:35 2022 GMT
+            Not After : May 22 17:05:35 2023 GMT
+        Subject: C = PL, ST = Lubleskie, L = Lublin, O = Politechnika Lubelska, OU = WEII, CN = bi.cs.pollub.pl, emailAddress = pollub.pl
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:ce:2a:5b:ff:1f:e3:51:7e:05:eb:7b:50:e2:8d:
+                    9d:46:73:2e:41:e6:5d:4f:fe:ec:8e:18:c0:03:c3:
+                    b8:0f:00:9f:5c:90:53:92:d0:03:d1:43:8b:97:2a:
+                    2d:80:85:9c:35:a5:b8:dc:8b:1a:6f:61:c7:72:03:
+                    4f:ea:68:b5:ab
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+    Signature Algorithm: ecdsa-with-SHA256
+         30:46:02:21:00:fa:6e:44:05:86:fd:13:c5:93:f8:d1:47:e5:
+         73:9c:4f:94:43:29:99:60:7d:b6:30:14:a5:d5:40:d4:9e:cb:
+         48:02:21:00:80:bd:0c:bb:12:05:0c:88:b1:17:1b:e0:0c:3c:
+         fa:f8:a6:35:59:ad:08:21:58:76:7b:a9:b8:3b:f7:1a:6c:23
+```
+File: /etc/hosts
+```
+➜  cspollubpl cat /etc/hosts
+127.0.0.1	localhost
+127.0.0.1       mx
+127.0.0.1	pkilab.com
+127.0.0.1	Polibuda.com
+127.0.0.1	Polibuda
+127.0.0.1	bi.cs.pollub.pl
+# The following lines are desirable for IPv6 capable hosts
+::1		localhost ip6-localhost ip6-loopback
+fe00::0		ip6-localnet
+ff00::0		ip6-mcastprefix
+ff02::1		ip6-allnodes
+ff02::2		ip6-allrouters
+```
+Server: run
+```
+cspollubpl openssl s_server -cert pollub.pem -www
+Using default temp DH parameters
+ACCEPT
+```
+ZDJ
+
+## P.6.3. Określ, z jakich elementów składa sie plik certyfikatu (*.pem) i jak wpływa modyfikacja bitów w poszczególnych elementach tegoż pliku na działanie serwera. Zmodyfikuj pojedyńczy bit w pliku server.pem przy użyciu edytora Hex. Uruchom ponownie serwer i przeładuj zawartość udostępnianej przez niego strony. Wyniki zamieść w tabeli zawierającej trzy kolumny: element pliku pem, opis elementu, opis wpływu modyfikacji bitu w tym elemencie na działanie serwera.
+```
+➜  cspollubpl cat pollub.pem 
+-----BEGIN EC PARAMETERS-----
+BggqhkjOPQMBBw==
+-----END EC PARAMETERS-----
+-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIMUcLKi/bp1DP+ZGL7PJkpdc6kUL7CXF4PymC2lVaXhnoAoGCCqGSM49
+AwEHoUQDQgAEzipb/x/jUX4F63tQ4o2dRnMuQeZdT/7sjhjAA8O4DwCfXJBTktAD
+0UOLlyotgIWcNaW43Isab2HHcgNP6mi1qw==
+-----END EC PRIVATE KEY-----
+-----BEGIN CERTIFICATE-----
+MIICKDCCAc0CFG6iRXxzJpgyVti9EmgJaolkfD+/MAoGCCqGSM49BAMCMIGVMQsw
+CQYDVQQGEwJQTDESMBAGA1UECAwJTHViZWxza2llMQ8wDQYDVQQHDAZMdWJsaW4x
+HjAcBgNVBAoMFVBvbGl0ZWNobmlrYSBMdWJlbHNrYTENMAsGA1UECwwEV0VJSTEY
+MBYGA1UEAwwPYmkuY3MucG9sbHViLnBsMRgwFgYJKoZIhvcNAQkBFglwb2xsdWIu
+cGwwHhcNMjIwNTIyMTcwNTM1WhcNMjMwNTIyMTcwNTM1WjCBlTELMAkGA1UEBhMC
+UEwxEjAQBgNVBAgMCUx1Ymxlc2tpZTEPMA0GA1UEBwwGTHVibGluMR4wHAYDVQQK
+DBVQb2xpdGVjaG5pa2EgTHViZWxza2ExDTALBgNVBAsMBFdFSUkxGDAWBgNVBAMM
+D2JpLmNzLnBvbGx1Yi5wbDEYMBYGCSqGSIb3DQEJARYJcG9sbHViLnBsMFkwEwYH
+KoZIzj0CAQYIKoZIzj0DAQcDQgAEzipb/x/jUX4F63tQ4o2dRnMuQeZdT/7sjhjA
+A8O4DwCfXJBTktAD0UOLlyotgIWcNaW43Isab2HHcgNP6mi1qzAKBggqhkjOPQQD
+AgNJADBGAiEA+m5EBYb9E8WT+NFH5XOcT5RDKZlgfbYwFKXVQNSey0gCIQCAvQy7
+EgUMiLEXG+AMPPr4pjVZrQghWHZ7qbg79xpsIw==
+-----END CERTIFICATE-----
 ```

@@ -132,7 +132,7 @@ ACCEPT
 ```
 ### P.6.1. Opisz i wyjaśnij swoje obserwacje. Co się stało i dlaczego?
 Przeglądarka przyjeła wygenerowany cerfyfikat ale go nie rozpoznała.
-Stało się tak ponieważ certyfikat był poprawny ale twórcy przeglądarki zapewne ze względów bezpieczeństwa korzystają tylko z kilku głównych/największych TTS'ów a nasz certyfikat nie ma autoryzacji z ich strony dlatego mimo zatwierdzenia certyfikaty przeglądara zamieszcza notę że nie rozpoznaje owego certyfikatu
+Stało się tak ponieważ certyfikat był poprawny ale twórcy przeglądarki zapewne ze względów bezpieczeństwa korzystają tylko z kilku głównych/największych TTS'ów a nasz certyfikat nie ma autoryzacji z ich strony dlatego mimo zatwierdzenia certyfikatu przeglądarka zamieszcza notę że nie rozpoznaje owego certyfikatu
 
 ### P.6.2. Wygeneruj i certyfikuj certyfikat dla serwera bi.cs.pollub.pl. W sprawozdaniu zamieść użyte polecenia oraz zrzut ekranu prezentujący odpowiedź uruchomionego serwera w przeglądarce
 Postąpiłem identycznie do poprzednich zadań tyle że plik csr wystylizowałem na zgodny z bi.cs.pollub.pl
@@ -218,9 +218,9 @@ EgUMiLEXG+AMPPr4pjVZrQghWHZ7qbg79xpsIw==
 ```
 | Część | Opis | Efekt |
 | --- | --- | --- |
-| EC Parameters | Opis | unable to load server certificate private key file |
-| EC PRIVATE KEY | Opis | unable to load server certificate private key file |
-| CERTIFICATE | Opis | unable to load certificate |
+| EC Parameters | Określa sposób kodowania parametrów krzywej eliptycznej | unable to load server certificate private key file |
+| EC PRIVATE KEY | Służy do generowania podpisów na danych przy użyciu algorytmu ECDSA oraz do generowania wspólnych sekretów przy użyciu algorytmu ECDH | unable to load server certificate private key file |
+| CERTIFICATE | To jest certyfikat w formacie pem, który jest opakowaniem klucza publicznego i może być rozpowszechniany | unable to load certificate |
 
 ### P.6.4. Przywróć poprawną postać certyfikatu serwera, uruchom ponownie serwer, a następnie wyświetl stronę WWW korzystając z adresu https://localhost:4433. Jaki jest efekt? Wyjaśnij, co sie stało. 
 

@@ -1,6 +1,6 @@
 <h1 align='center'>SSL</h1>
 
-## Zadanie 6.1. Utworzenie głównego urzędu certyfikacji CA
+### Zadanie 6.1. Utworzenie głównego urzędu certyfikacji CA
 
 ```
 ➜  server openssl ecparam -out ca.key -name prime256v1 -genkey
@@ -59,7 +59,7 @@ Certificate Request:
          4c:02:21:00:d8:3b:b8:41:0b:88:eb:ca:2f:ae:8a:56:5c:37:
          98:ca:80:32:e8:fa:9d:23:c2:00:9f:6c:fb:3b:67:53:40:29
 ```
-## Zadanie 6.2. Utworzenie certyfikatu dla organizacji
+### Zadanie 6.2. Utworzenie certyfikatu dla organizacji
 ```
 ➜  server openssl ecparam -out server.key -name prime256v1 -genkey
 ➜  server openssl req -new -sha256 -key server.key -out server.csr 
@@ -130,11 +130,11 @@ Certificate:
 Using default temp DH parameters
 ACCEPT
 ```
-## P.6.1. Opisz i wyjaśnij swoje obserwacje. Co się stało i dlaczego?
+### P.6.1. Opisz i wyjaśnij swoje obserwacje. Co się stało i dlaczego?
 Przeglądarka przyjeła wygenerowany cerfyfikat ale go nie rozpoznała.
 Stało się tak ponieważ certyfikat był poprawny ale twórcy przeglądarki zapewne ze względów bezpieczeństwa korzystają tylko z kilku głównych/największych TTS'ów a nasz certyfikat nie ma autoryzacji z ich strony dlatego mimo zatwierdzenia certyfikaty przeglądara zamieszcza notę że nie rozpoznaje owego certyfikatu
 
-## P.6.2. Wygeneruj i certyfikuj certyfikat dla serwera bi.cs.pollub.pl. W sprawozdaniu zamieść użyte polecenia oraz zrzut ekranu prezentujący odpowiedź uruchomionego serwera w przeglądarce
+### P.6.2. Wygeneruj i certyfikuj certyfikat dla serwera bi.cs.pollub.pl. W sprawozdaniu zamieść użyte polecenia oraz zrzut ekranu prezentujący odpowiedź uruchomionego serwera w przeglądarce
 Postąpiłem identycznie do poprzednich zadań tyle że plik csr wystylizowałem na zgodny z bi.cs.pollub.pl
 ```
 ➜  cspollubpl openssl x509 -in pollub.crt -text -noout 
@@ -190,7 +190,7 @@ ACCEPT
 ```
 ZDJ
 
-## P.6.3. Określ, z jakich elementów składa sie plik certyfikatu (*.pem) i jak wpływa modyfikacja bitów w poszczególnych elementach tegoż pliku na działanie serwera. Zmodyfikuj pojedyńczy bit w pliku server.pem przy użyciu edytora Hex. Uruchom ponownie serwer i przeładuj zawartość udostępnianej przez niego strony. Wyniki zamieść w tabeli zawierającej trzy kolumny: element pliku pem, opis elementu, opis wpływu modyfikacji bitu w tym elemencie na działanie serwera.
+### P.6.3. Określ, z jakich elementów składa sie plik certyfikatu (*.pem) i jak wpływa modyfikacja bitów w poszczególnych elementach tegoż pliku na działanie serwera. Zmodyfikuj pojedyńczy bit w pliku server.pem przy użyciu edytora Hex. Uruchom ponownie serwer i przeładuj zawartość udostępnianej przez niego strony. Wyniki zamieść w tabeli zawierającej trzy kolumny: element pliku pem, opis elementu, opis wpływu modyfikacji bitu w tym elemencie na działanie serwera.
 ```
 ➜  cspollubpl cat pollub.pem 
 -----BEGIN EC PARAMETERS-----

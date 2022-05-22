@@ -230,12 +230,32 @@ Natomiast przeglądarka o tym że wystawiony certyfikat nie jest właściwy dla 
 
 ### P.6.5. W celu określenia czasu szyfrowania i deszyfrowania skorzystaj z systemowego polecenia "time". Jako wynik zapisz sumy czasów user+sys. W celu zminimalizowania błędów napisz skrypt realizujący 100 powtórzeń dla każdej operacji mierząc w ten sposób czas jej wielokrotnego wykonania, następnie podaj wyniki średnie dla każdej operacji. Przedstaw je w postaci umożliwiającej porównanie wydajności np. obliczając ilość danych przetwarzanych w ciągu jednej sekundy. Opracuj zestawienie uzyskanych wyników w formie tabeli. Sporządź wykresy dla uzyskanych wyników.
 
-| File | Mode | Time |
+| File | Mode | Time (s) |
 | --- | --- | --- |
-| 10B | Encryption | --- |
-| 200B | Encryption | --- |
-| 10M | Encryption | --- |
-| 10B | Decryption | --- |
-| 200B | Decryption | --- |
-| 10M | Decryption | --- |
+| 10B | Encryption | 0 |
+| 200B | Encryption | 0 |
+| 10M | Encryption | 0.05 |
+| 10B | Decryption | 0 |
+| 200B | Decryption | 0 |
+| 10M | Decryption | 0.05 |
+
+### P.6.6. Przedstaw wyniki analogicznie do tych z P. 6.5. Porównaj je ze sobą i skomentuj.
+
+### Średni czas : 3s
+| Type | 16 Bytes | 16 Bytes | 16 Bytes | 16 Bytes | 16 Bytes | 16 Bytes |
+| --- | --- | --- | --- | --- | --- | --- |
+| aes-128 cbc | 170570.46k | 169502.59k | 190912.52k | 180504.83k | 180095.83k | 181966.51k |
+| aes-192 cbc | 161515.27k | 154438.57k | 154994.00k | 155213.59k | 155408.37k | 155096.29k |
+| aes-256 cbc | 129349.68k | 150198.20k | 132249.08k | 135711.17k | 137189.80k | 136026.08k |
+
+### Średni czas : 10s
+|  |  | sign | verify | sign/s | verify/s |
+| --- | --- | --- | --- | --- | --- |
+| rsa | 512 bits | 0.000059s | 0.000005s | 16901.6 | 220842.9 | 
+| rsa | 1024 bits | 0.000164s | 0.000011s | 6100.6 | 94266.4 | 
+| rsa | 2048 bits | 0.000798s | 0.000035s | 1252.5 | 28935.0 | 
+| rsa | 3072 bits | 0.003693s | 0.000073s | 270.8 | 13658.1 | 
+| rsa | 4096 bits | 0.008472s | 0.000125s | 118.0 | 8029.6 | 
+| rsa | 7680 bits | 0.067793s | 0.000427s | 14.8 | 2343.9 | 
+| rsa | 15360 bits | 0.402000s | 0.001682s | 2.5 | 594.7 | 
 

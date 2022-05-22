@@ -242,7 +242,7 @@ Natomiast przeglądarka o tym że wystawiony certyfikat nie jest właściwy dla 
 ### P.6.6. Przedstaw wyniki analogicznie do tych z P. 6.5. Porównaj je ze sobą i skomentuj.
 
 ### Średni czas : 3s
-| Type | 16 Bytes | 16 Bytes | 16 Bytes | 16 Bytes | 16 Bytes | 16 Bytes |
+| Type | 16 Bytes | 64 Bytes | 256 Bytes | 1024 Bytes | 8192 Bytes | 16384 Bytes |
 | --- | --- | --- | --- | --- | --- | --- |
 | aes-128 cbc | 170570.46k | 169502.59k | 190912.52k | 180504.83k | 180095.83k | 181966.51k |
 | aes-192 cbc | 161515.27k | 154438.57k | 154994.00k | 155213.59k | 155408.37k | 155096.29k |
@@ -251,11 +251,62 @@ Natomiast przeglądarka o tym że wystawiony certyfikat nie jest właściwy dla 
 ### Średni czas : 10s
 |  |  | sign | verify | sign/s | verify/s |
 | --- | --- | --- | --- | --- | --- |
-| rsa | 512 bits | 0.000059s | 0.000005s | 16901.6 | 220842.9 | 
-| rsa | 1024 bits | 0.000164s | 0.000011s | 6100.6 | 94266.4 | 
-| rsa | 2048 bits | 0.000798s | 0.000035s | 1252.5 | 28935.0 | 
-| rsa | 3072 bits | 0.003693s | 0.000073s | 270.8 | 13658.1 | 
-| rsa | 4096 bits | 0.008472s | 0.000125s | 118.0 | 8029.6 | 
-| rsa | 7680 bits | 0.067793s | 0.000427s | 14.8 | 2343.9 | 
-| rsa | 15360 bits | 0.402000s | 0.001682s | 2.5 | 594.7 | 
+| rsa | 512 bits | 0.000059s | 0.000005s | 16901.6 | 220842.9 |
+| rsa | 1024 bits | 0.000164s | 0.000011s | 6100.6 | 94266.4 |
+| rsa | 2048 bits | 0.000798s | 0.000035s | 1252.5 | 28935.0 |
+| rsa | 3072 bits | 0.003693s | 0.000073s | 270.8 | 13658.1 |
+| rsa | 4096 bits | 0.008472s | 0.000125s | 118.0 | 8029.6 |
+| rsa | 7680 bits | 0.067793s | 0.000427s | 14.8 | 2343.9 |
+| rsa | 15360 bits | 0.402000s | 0.001682s | 2.5 | 594.7 |
 
+### P.6.7. Udokumentuj poprawność przeprowadzonego ćwiczenia i opisz uzyskane wyniki. Omów jak wpływa modyfikacja wiadomości na weryfikację podpisu cyfrowego.
+
+```
+➜  podpis openssl genrsa -aes256 -out private.key 1024
+Generating RSA private key, 1024 bit long modulus (2 primes)
+....................................+++++
+..+++++
+e is 65537 (0x010001)
+Enter pass phrase for private.key:
+Verifying - Enter pass phrase for private.key:
+➜  podpis openssl rsa -in private.key -out public.pem -outform PEM -pubout 
+Enter pass phrase for private.key:
+writing RSA key
+➜  podpis touch podpis.txt
+➜  podpis openssl dgst -sha256 -sign private.key -out podpis.sha256 podpis.txt
+Enter pass phrase for private.key:
+➜  podpis openssl dgst -sha256 -verify public.pem -signature podpis.sha256 podpis.txt
+Verified OK
+```
+```
+➜  podpis head *
+==> podpis.sha256 <==
+�M�whn'Xۃ߄MQ;I��()��TKa�c�\Z4����u�	7ܤuQ�bJ��xu���9N��찠�����
+])��bZ�0\_�V�������(��/v9�;�n��?�0��>����9�'�ե�
+==> podpis.txt <==
+
+==> private.key <==
+-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: AES-256-CBC,CE95516AE93E3179C97AF851B6B6222F
+
+W2WS5gsjWW8XvdbgxOZT6YxUnc6HkkSn09i4cNh9l+CH5UhVzF8CF2Bx554XgBZX
+D2E7b/5+evrms7nUwO6C1/9+AQkzW7g4RaT1Q4FIE6HqJqpzwEdy3WdsXa3TJRo/
+KuVFZFtPFps5ElqnmKg2U0gMBuLqz/JCTbKp0t11odErQT0cfI/sEiYzkfn78vdG
+hPFqfSNxofKkAw2wQUY6D7JYSrl5a1EQYDaYn00WXFedZbZch9JRHYfwoWt61sYX
+q4pf4ScDTYqhAIKifelTFA9X5Wp4A5B5Yqt+VVhtnBNh4u/fJEY4/PHGNSxbPiUi
+piBH4FKmx7QyKvpFig8IJ7/oBHcDvNz1/UuEvofE0hDX4lyGgdSfw5E6hhnGYzNw
+
+==> public.pem <==
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCz0WdkexSx/JvQbM+2r0cIx+WA
+3vFViYbthPe7v+zhl+aH7OoJcTu6A1+VK9detFGCAymrSYNXOGL89kzbJgSqGuK4
+KsyRnpFgNdGNrMxBDsxoUciRKG4L67uacPEfo/pBA+UPDmHotFM890elGc399d/T
+N2CyOGhsBFSeQxGyjQIDAQAB
+-----END PUBLIC KEY-----
+➜  podpis echo "Slonce wstalo, miesiac maj..." > podpis.txt 
+➜  podpis openssl dgst -sha256 -verify public.pem -signature podpis.sha256 podpis.txt
+Verification Failure
+```
+
+Modyfikacja wiadomości wpływa na nie poprawną weryfikację podpisu cyfrowego.

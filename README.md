@@ -319,3 +319,4 @@ Verification Failure
 ```
 
 Modyfikacja wiadomości wpływa na nie poprawną weryfikację podpisu cyfrowego.
+GitHub: https://github.com/Gabrysiewicz/BI-Szyfry/tree/ssl

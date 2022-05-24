@@ -4,6 +4,8 @@
 Możesz w tym celu użyć polecenia diff. Wyjaśnij, co się stało podczas tworzenia kopii
 i dlaczego. </h3>
 
+<img src='https://github.com/Gabrysiewicz/BI-Szyfry/blob/copy/grsync.png' >
+
 ```
 .
 ├── dane_nazwisko

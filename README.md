@@ -97,3 +97,90 @@ Guest :
 ➜  ssh_copy ls
 100kB  10kB  10MB  DirA  DirB  DirC
 ```
+
+<h3> P.7.5. Udokumentuj i opisz etapy wykonanie ćwiczenia.  </h3>
+
+Konfiguracja guest
+
+```
+➜  .ssh whoami
+guest
+➜  .ssh ls
+authorized_keys  id_rsa  id_rsa.pub  known_hosts
+➜  .ssh head *
+==> authorized_keys <==
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDXK0IiIeVBZi+GtxehMkEXwAmY31XkR42UEs6HxPT4M54EMhWJ8Eb2/dKNiSIYkr2vLHWGv4vncmnaq
++eztIA4dVyyNtOFFZXx9qvh1kQUVrNkeFHZ7Y2WOMfE6Dq3c4HjzuwBK3670LNxDEkdeJ+ZbVlVoTigqpHOTjE6im/dZZ7zP0XTFpY/Nsph1nTUrlotGp
+p6HdNRV5487JSV8GjaG8jHhcGYLl4HRA+Qhz6mrnXSA2Arm/O0H1f4ODo57zLjZPQVtJkaI1RuGM8Fy/lbYUQrwgrx65CR4ojpf6bD5huaCukGxiP/k5h
+mcrQ0aGKp364yDyZr83fzo2hu0zLL guest2@Guest2
+
+==> id_rsa <==
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdzc2gtcn
+NhAAAAAwEAAQAAAQEAxXbXM4J+aq7YcdvitP+ZyueIL0j1cLIeJk0rm1/wrYR2YJmZMNBW
+I8X6NS/WOrBtuK1LkbospR6WHskvVj+sRmfD+Bh9m/vqhBGUinGM+NFVGWlO1Q6sqyFLwN
+NnYdUCNTln/a2oy0FIouKSorO1Z3KuTICQHGJglqWsE/3TCi1O4hP7vnv6TsJfpeH7B5eW
+XP2EBimznzgypn04+DCeXNVa+oLlPVrbfn7BqvX7rcY9/iuLLySHB6vWNY5PTzui/8PHnQ
+04q1DeBKd6d0wH4wfIg8AoclL86pkljIVeP+N/InKJAYsjStAzr/L7faU/XvzwU3l+WEiq
+lVrB8iXU5QAAA8BJ+qaySfqmsgAAAAdzc2gtcnNhAAABAQDFdtczgn5qrthx2+K0/5nK54
+gvSPVwsh4mTSubX/CthHZgmZkw0FYjxfo1L9Y6sG24rUuRuiylHpYeyS9WP6xGZ8P4GH2b
+++qEEZSKcYz40VUZaU7VDqyrIUvA02dh1QI1OWf9rajLQUii4pKis7Vncq5MgJAcYmCWpa
+
+==> id_rsa.pub <==
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFdtczgn5qrthx2+K0/5nK54gvSPVwsh4mTSubX/CthHZgmZkw0FYjxfo1L9Y6sG24rUuRuiylHpYe
+yS9WP6xGZ8P4GH2b++qEEZSKcYz40VUZaU7VDqyrIUvA02dh1QI1OWf9rajLQUii4pKis7Vncq5MgJAcYmCWpawT/dMKLU7iE/u+e/pOwl+l4fsHl5Z
+c/YQGKbOfODKmfTj4MJ5c1Vr6guU9Wtt+fsGq9futxj3+K4svJIcHq9Y1jk9PO6L/w8edDTirUN4Ep3p3TAfjB8iDwChyUvzqmSWMhV4/438icokBiy
+K0DOv8vt9pT9e/PBTeX5YSKqVWsHyJdTl guest@mx
+
+==> known_hosts <==
+192.168.0.22 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBF2RywLnwsfliL3N7WsulqIe4He
+Qt4+XjTfahDZnhQUcbw0PssPFOPNtHtRxJx4EoBHcRzUOhAuKAmR/p/PBA+M=
+```
+
+Konfiguracja guest2
+
+```
+➜  .ssh whoami
+guest2
+➜  .ssh ls
+authorized_keys  id_rsa  id_rsa.pub  known_hosts
+➜  .ssh head *
+==> authorized_keys <==
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFdtczgn5qrthx2+K0/5nK54gvSPVwsh4mTSubX/CthHZgmZkw0FYjxf
+o1L9Y6sG24rUuRuiylHpYeyS9WP6xGZ8P4GH2b++qEEZSKcYz40VUZaU7VDqyrIUvA02dh1QI1OWf9rajLQUii4pKis7V
+ncq5MgJAcYmCWpawT/dMKLU7iE/u+e/pOwl+l4fsHl5Zc/YQGKbOfODKmfTj4MJ5c1Vr6guU9Wtt+fsGq9futxj3+K4sv
+JIcHq9Y1jk9PO6L/w8edDTirUN4Ep3p3TAfjB8iDwChyUvzqmSWMhV4/438icokBiyNK0DOv8vt9pT9e/PBTeX5YSKqVW
+sHyJdTl guest@mx
+
+==> id_rsa <==
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABC6q/3hsh
+/2blnJqNUavTrjAAAAEAAAAAEAAAEXAAAAB3NzaC1yc2EAAAADAQABAAABAQDXK0IiIeVB
+Zi+GtxehMkEXwAmY31XkR42UEs6HxPT4M54EMhWJ8Eb2/dKNiSIYkr2vLHWGv4vncmnaq+
+eztIA4dVyyNtOFFZXx9qvh1kQUVrNkeFHZ7Y2WOMfE6Dq3c4HjzuwBK3670LNxDEkdeJ+Z
+bVlVoTigqpHOTjE6im/dZZ7zP0XTFpY/Nsph1nTUrlotGpp6HdNRV5487JSV8GjaG8jHhc
+GYLl4HRA+Qhz6mrnXSA2Arm/O0H1f4ODo57zLjZPQVtJkaI1RuGM8Fy/lbYUQrwgrx65CR
+4ojpf6bD5huaCukGxiP/k5hmcrQ0aGKp364yDyZr83fzo2hu0zLLAAAD0Jc5s6uUrPsAx/
+j0pCpp8QPS7RFBjd+6HW7n9R826tK62leLO58EGgxqQCFrYj1qQvbrwGpuTphVafWYKjaq
+hcp8K8yEU3A3+f67l8LsSYJlP2s6pyPZLNFtS+LcnWekPfE3i3iNZ/Tz+ut27OMDVs6VV1
+
+==> id_rsa.pub <==
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDXK0IiIeVBZi+GtxehMkEXwAmY31XkR42UEs6HxPT4M54EMhWJ8E
+b2/dKNiSIYkr2vLHWGv4vncmnaq+eztIA4dVyyNtOFFZXx9qvh1kQUVrNkeFHZ7Y2WOMfE6Dq3c4HjzuwBK3670LNx
+DEkdeJ+ZbVlVoTigqpHOTjE6im/dZZ7zP0XTFpY/Nsph1nTUrlotGpp6HdNRV5487JSV8GjaG8jHhcGYLl4HRA+Qh
+z6mrnXSA2Arm/O0H1f4ODo57zLjZPQVtJkaI1RuGM8Fy/lbYUQrwgrx65CR4ojpf6bD5huaCukGxiP/k5hmcrQ0aGK
+p364yDyZr83fzo2hu0zLL guest2@Guest2
+
+==> known_hosts <==
+192.168.0.21 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBB
+F2RywLnwsfliL3N7WsulqIe4HeQt4+XjTfahDZnhQUcbw0PssPFOPNtHtRxJx4EoBHcRzUOhAuKAmR/p/PBA+M=
+```
+
+Guest1
+
+```
+➜  ~ scp -r ssh_copy guest2@192.168.0.22:~  
+10kB                                                                          100%   10KB   3.2MB/s   00:00    
+100kB                                                                         100%  100KB  25.3MB/s   00:00    
+10MB                                                                          100%   10MB  56.3MB/s   00:00  
+```

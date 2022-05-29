@@ -6,199 +6,78 @@ i dlaczego. </h3>
 <h3>Grsync</h3>
 <img src='https://github.com/Gabrysiewicz/BI-Szyfry/blob/copy/grsync.png' >
 
-```
-.
-├── dane_nazwisko
-│   ├── plik1
-│   ├── plik10
-│   ├── plik11
-│   ├── plik12
-│   ├── plik13
-│   ├── plik14
-│   ├── plik15
-│   ├── plik16
-│   ├── plik17
-│   ├── plik18
-│   ├── plik19
-│   ├── plik2
-│   ├── plik20
-│   ├── plik21
-│   ├── plik22
-│   ├── plik23
-│   ├── plik24
-│   ├── plik25
-│   ├── plik26
-│   ├── plik27
-│   ├── plik28
-│   ├── plik29
-│   ├── plik3
-│   ├── plik30
-│   ├── plik31
-│   ├── plik32
-│   ├── plik33
-│   ├── plik34
-│   ├── plik35
-│   ├── plik36
-│   ├── plik37
-│   ├── plik38
-│   ├── plik39
-│   ├── plik4
-│   ├── plik40
-│   ├── plik41
-│   ├── plik42
-│   ├── plik43
-│   ├── plik44
-│   ├── plik45
-│   ├── plik46
-│   ├── plik47
-│   ├── plik48
-│   ├── plik49
-│   ├── plik5
-│   ├── plik50
-│   ├── plik6
-│   ├── plik7
-│   ├── plik8
-│   └── plik9
-└── dane_nazwisko_kopia
-    └── dane_nazwisko
-        ├── plik1
-        ├── plik10
-        ├── plik11
-        ├── plik12
-        ├── plik13
-        ├── plik14
-        ├── plik15
-        ├── plik16
-        ├── plik17
-        ├── plik18
-        ├── plik19
-        ├── plik2
-        ├── plik20
-        ├── plik21
-        ├── plik22
-        ├── plik23
-        ├── plik24
-        ├── plik25
-        ├── plik26
-        ├── plik27
-        ├── plik28
-        ├── plik29
-        ├── plik3
-        ├── plik30
-        ├── plik31
-        ├── plik32
-        ├── plik33
-        ├── plik34
-        ├── plik35
-        ├── plik36
-        ├── plik37
-        ├── plik38
-        ├── plik39
-        ├── plik4
-        ├── plik40
-        ├── plik41
-        ├── plik42
-        ├── plik43
-        ├── plik44
-        ├── plik45
-        ├── plik46
-        ├── plik47
-        ├── plik48
-        ├── plik49
-        ├── plik5
-        ├── plik50
-        ├── plik6
-        ├── plik7
-        ├── plik8
-        └── plik9
-```
-
 <h3> Rsync </h3>
 
 ```
-student@LabVM:~/KopieZapasowe/rsync$ rsync -r dane_nazwisko/ dane_nazwisko_kopia/
-student@LabVM:~/KopieZapasowe/rsync$ ls dane_nazwisko_kopia/
-imag2.jpeg  plik10  plik13  plik16  plik19  plik21  plik24  plik27  plik3   plik32  plik35  plik38  plik40  plik43  plik46  plik49  plik7
-img1.jpeg   plik11  plik14  plik17  plik2   plik22  plik25  plik28  plik30  plik33  plik36  plik39  plik41  plik44  plik47  plik5   plik8
-plik1       plik12  plik15  plik18  plik20  plik23  plik26  plik29  plik31  plik34  plik37  plik4   plik42  plik45  plik48  plik6   plik9
-```
-
-```
-student@LabVM:~/KopieZapasowe/rsync$ ls *
+➜  Copies rsync -r dane_nazwisko/ dane_nazwisko_copy
+➜  Copies ls *                                      
 dane_nazwisko:
-imag2.jpeg  plik10  plik13  plik16  plik19  plik21  plik24  plik27  plik3   plik32  plik35  plik38  plik40  plik43  plik46  plik49  plik7
-img1.jpeg   plik11  plik14  plik17  plik2   plik22  plik25  plik28  plik30  plik33  plik36  plik39  plik41  plik44  plik47  plik5   plik8
-plik1       plik12  plik15  plik18  plik20  plik23  plik26  plik29  plik31  plik34  plik37  plik4   plik42  plik45  plik48  plik6   plik9
+file1   file11  file13  file15  file17  file19  file20  file22  file24  file26  file28  file3   file31  file33  file35  file37  file39  file40  file42  file44  file46  file48  file5  file7  file9
+file10  file12  file14  file16  file18  file2   file21  file23  file25  file27  file29  file30  file32  file34  file36  file38  file4   file41  file43  file45  file47  file49  file6  file8
 
-dane_nazwisko_kopia:
-img3.jpeg  plik10  plik13  plik16  plik19  plik21  plik24  plik27  plik3   plik32  plik35  plik38  plik40  plik43  plik46  plik49  plik7
-img4.jpeg  plik11  plik14  plik17  plik2   plik22  plik25  plik28  plik30  plik33  plik36  plik39  plik41  plik44  plik47  plik5   plik8
-plik1      plik12  plik15  plik18  plik20  plik23  plik26  plik29  plik31  plik34  plik37  plik4   plik42  plik45  plik48  plik6   plik9
+dane_nazwisko_copy:
+file1   file11  file13  file15  file17  file19  file20  file22  file24  file26  file28  file3   file31  file33  file35  file37  file39  file40  file42  file44  file46  file48  file5  file7  file9
+file10  file12  file14  file16  file18  file2   file21  file23  file25  file27  file29  file30  file32  file34  file36  file38  file4   file41  file43  file45  file47  file49  file6  file8
+```
 
-student@LabVM:~/KopieZapasowe/rsync$ rsync -av --delete dane_nazwisko/ dane_nazwisko_kopia/
+```
+➜  Copies ls *
+dane_nazwisko:
+file1   file12  file15  file18  file20  file23  file26  file29  file31  file34  file37  file4   file42  file45  file48  file6  file9
+file10  file13  file16  file19  file21  file24  file27  file3   file32  file35  file38  file40  file43  file46  file49  file7  img1.png
+file11  file14  file17  file2   file22  file25  file28  file30  file33  file36  file39  file41  file44  file47  file5   file8  img2.jpeg
+
+dane_nazwisko_copy:
+file1   file12  file15  file18  file20  file23  file26  file29  file31  file34  file37  file4   file42  file45  file48  file6  file9
+file10  file13  file16  file19  file21  file24  file27  file3   file32  file35  file38  file40  file43  file46  file49  file7  img3.jpeg
+file11  file14  file17  file2   file22  file25  file28  file30  file33  file36  file39  file41  file44  file47  file5   file8  img4.jpeg
+
+➜  Copies rsync -av --delete dane_nazwisko/ dane_nazwisko_copy
 sending incremental file list
 deleting img4.jpeg
 deleting img3.jpeg
 ./
-imag2.jpeg
-img1.jpeg
-plik1
-plik10
-plik11
-plik12
-plik13
-plik14
-plik15
-plik16
-plik17
-plik18
-plik19
-plik2
-plik20
-plik21
-plik22
-plik23
-plik24
-plik25
-plik26
-plik27
-plik28
-plik29
-plik3
-plik30
-plik31
-plik32
-plik33
-plik34
-plik35
-plik36
-plik37
-plik38
-plik39
-plik4
-plik40
-plik41
-plik42
-plik43
-plik44
-plik45
-plik46
-plik47
-plik48
-plik49
-plik5
-plik6
-plik7
-plik8
-plik9
-
-sent 17,336 bytes  received 1,014 bytes  36,700.00 bytes/sec
-total size is 14,529  speedup is 0.79
+file1
+...
+sent 638,084 bytes  received 1,014 bytes  1,278,196.00 bytes/sec
+total size is 635,185  speedup is 0.99
 ```
 
-Przy pomocy polecenia rsync opcja 
+Rsync dodatkowe opcje
 ```
 -a, --append     append data onto shorter files     - dokleja zmienioną zawarość
 -v, --verbose    increase verbosity 
 -delete         delete extraneous files from destination dirs   - usuwa nadprogramowe pliki 
 ```
+<h3> P.7.2. Zaplanuj tworzenie kopi zapasowej katalogu dane_nazwisko w czwartki o godzinie
+21:15. Udokumentuj wykonanie ćwiczenia. </h3>
+```
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+15 21 * * 4 rsync -av --delete ~/Copies/dane_nazwisko ~/Copies/dane_nazwisko_copy
+```
+
+<h3> P.7.3. Napisz skrypt, który będzie tworzył kopię zapasową, co godzinę w dni robocze. Dodaj
+wywołanie skryptu do cron-a. Sprawdź działanie opracowanego rozwiązania i je udokumentuj. </h3>
+

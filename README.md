@@ -73,6 +73,7 @@ Crontab
 ```
 
 <h3> P.7.4. Udokumentuj i opisz etapy wykonanie ćwiczenia. </h3>
+Host : 
 
 ```
 ➜  BI_Backup rsync -av --delete -e ssh ~/BI_Backup/ guest@192.168.0.21:~/ssh_copy
@@ -88,4 +89,11 @@ DirC/
 
 sent 10,601,337 bytes  received 92 bytes  3,028,979.71 bytes/sec
 total size is 10,598,400  speedup is 1.00
+```
+
+Guest : 
+
+```
+➜  ssh_copy ls
+100kB  10kB  10MB  DirA  DirB  DirC
 ```

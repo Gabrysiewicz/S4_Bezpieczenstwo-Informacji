@@ -198,9 +198,7 @@ total size is 14,529  speedup is 0.79
 
 Przy pomocy polecenia rsync opcja 
 ```
--a, --append     append data onto shorter files
- - dokleja zmieniona zawarosc
+-a, --append     append data onto shorter files     - dokleja zmienioną zawarość
 -v, --verbose    increase verbosity 
--delete         delete extraneous files from destination dirs
-                - usuwa nadprogramowe pliki 
+-delete         delete extraneous files from destination dirs   - usuwa nadprogramowe pliki 
 ```

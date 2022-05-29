@@ -51,6 +51,7 @@ Rsync dodatkowe opcje
 ```
 <h3> P.7.2. Zaplanuj tworzenie kopi zapasowej katalogu dane_nazwisko w czwartki o godzinie
 21:15. Udokumentuj wykonanie ćwiczenia. </h3>
+
 ```
 # Edit this file to introduce tasks to be run by cron.
 # 

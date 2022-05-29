@@ -73,6 +73,7 @@ Crontab
 ```
 
 <h3> P.7.4. Udokumentuj i opisz etapy wykonanie ćwiczenia. </h3>
+
 ```
 ➜  BI_Backup rsync -av --delete -e ssh ~/BI_Backup/ guest@192.168.0.21:~/ssh_copy
 guest@192.168.0.21's password: 

@@ -12,25 +12,35 @@ i dlaczego. </h3>
 ➜  Copies rsync -r dane_nazwisko/ dane_nazwisko_copy
 ➜  Copies ls *                                      
 dane_nazwisko:
-file1   file11  file13  file15  file17  file19  file20  file22  file24  file26  file28  file3   file31  file33  file35  file37  file39  file40  file42  file44  file46  file48  file5  file7  file9
-file10  file12  file14  file16  file18  file2   file21  file23  file25  file27  file29  file30  file32  file34  file36  file38  file4   file41  file43  file45  file47  file49  file6  file8
+file1   file11  file13  file15  file17  file19  file20  file22  file24  file26  
+file28  file3   file31  file33  file35  file37  file39  file40  file42  file44  
+file46  file48  file5   file7   file9   file10  file12  file14  file16  file18  
+file2   file21  file23  file25  file27  file29  file30  file32  file34  file36  
+file38  file4   file41  file43  file45  file47  file49  file6  file8
 
 dane_nazwisko_copy:
-file1   file11  file13  file15  file17  file19  file20  file22  file24  file26  file28  file3   file31  file33  file35  file37  file39  file40  file42  file44  file46  file48  file5  file7  file9
-file10  file12  file14  file16  file18  file2   file21  file23  file25  file27  file29  file30  file32  file34  file36  file38  file4   file41  file43  file45  file47  file49  file6  file8
+file1   file11  file13  file15  file17  file19  file20  file22  file24  file26
+file28  file3   file31  file33  file35  file37  file39  file40  file42  file44
+file46  file48  file5   file7  file9   file10  file12  file14   file16  file18
+file2   file21  file23  file25  file27  file29  file30  file32  file34  file36
+file38  file4   file41  file43  file45  file47  file49  file6   file8
 ```
 
 ```
 ➜  Copies ls *
 dane_nazwisko:
-file1   file12  file15  file18  file20  file23  file26  file29  file31  file34  file37  file4   file42  file45  file48  file6  file9
-file10  file13  file16  file19  file21  file24  file27  file3   file32  file35  file38  file40  file43  file46  file49  file7  img1.png
-file11  file14  file17  file2   file22  file25  file28  file30  file33  file36  file39  file41  file44  file47  file5   file8  img2.jpeg
+file1   file12  file15  file18  file20  file23  file26  file29  file31  file34
+file37  file4   file42  file45  file48  file6   file9   file10  file13  file16
+file19  file21  file24  file27  file3   file32  file35  file38  file40  file43
+file46  file49  file7   img1.png  file11  file14  file17  file2   file22
+file25  file28  file30  file33  file36  file39  file41  file44  file47  file5   file8  img2.jpeg
 
 dane_nazwisko_copy:
-file1   file12  file15  file18  file20  file23  file26  file29  file31  file34  file37  file4   file42  file45  file48  file6  file9
-file10  file13  file16  file19  file21  file24  file27  file3   file32  file35  file38  file40  file43  file46  file49  file7  img3.jpeg
-file11  file14  file17  file2   file22  file25  file28  file30  file33  file36  file39  file41  file44  file47  file5   file8  img4.jpeg
+file1   file12  file15  file18  file20  file23  file26  file29  file31  file34
+file37  file4   file42  file45  file48  file6  file9   file10  file13  file16 
+file19  file21  file24  file27  file3   file32  file35  file38  file40  file43 
+file46  file49  file7   img3.jpeg  file11  file14  file17  file2   file22  file25 
+file28  file30  file33  file36  file39  file41  file44  file47  file5   file8  img4.jpeg
 
 ➜  Copies rsync -av --delete dane_nazwisko/ dane_nazwisko_copy
 sending incremental file list

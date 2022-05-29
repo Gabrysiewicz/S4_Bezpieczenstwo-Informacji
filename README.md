@@ -71,3 +71,20 @@ Crontab
 ```
 0 * * * 1-5 sh ~/.scripts/script_copy
 ```
+
+<h3> P.7.4. Udokumentuj i opisz etapy wykonanie ćwiczenia. </h3>
+```
+➜  BI_Backup rsync -av --delete -e ssh ~/BI_Backup/ guest@192.168.0.21:~/ssh_copy
+guest@192.168.0.21's password: 
+sending incremental file list
+./
+100kB
+10MB
+10kB
+DirA/
+DirB/
+DirC/
+
+sent 10,601,337 bytes  received 92 bytes  3,028,979.71 bytes/sec
+total size is 10,598,400  speedup is 1.00
+```

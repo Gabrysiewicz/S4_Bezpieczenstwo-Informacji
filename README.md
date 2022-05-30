@@ -194,3 +194,56 @@ Guest1
 100kB                                                                         100%  100KB  25.3MB/s   00:00    
 10MB                                                                          100%   10MB  56.3MB/s   00:00  
 ```
+
+<h3> P.7.6. W sprawozdaniu umieść treść skryptu, wpis z cron-a oraz zrzut ekranu prezentujący
+efekt działania skryptu. Odpowiedź na pytanie: Dlaczego skrypt wywoływany przez
+cron może wykonać kopię katalogu użytkownika, skoro użytkownik nie jest
+zalogowany? </h3>
+
+```
+➜  ~ sudo fdisk -l 
+Disk /dev/sda: 15 GiB, 16106127360 bytes, 31457280 sectors
+Disk model: VBOX HARDDISK   
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x00a5af70
+
+Device     Boot    Start      End  Sectors Size Id Type
+/dev/sda1  *        2048 14616575 14614528   7G 83 Linux
+/dev/sda2       14616576 16713727  2097152   1G 83 Linux
+
+
+Disk /dev/sdb: 100 MiB, 104857600 bytes, 204800 sectors
+Disk model: VBOX HARDDISK   
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+➜  ~ sudo mkfs.ext4 /dev/sdb
+mke2fs 1.44.5 (15-Dec-2018)
+Creating filesystem with 102400 1k blocks and 25688 inodes
+Filesystem UUID: 4d2e3c50-506d-4f49-9a83-f41cee889c1d
+Superblock backups stored on blocks: 
+	8193, 24577, 40961, 57345, 73729
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: done 
+
+➜  ~ sudo mkdir -p /mnt/archive       
+➜  ~ sudo mount /dev/sdb /mnt/archive
+➜  ~ sudo df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            964M     0  964M   0% /dev
+tmpfs           200M  2.3M  198M   2% /run
+/dev/sda1       6.8G  6.4G   42M 100% /
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           604M  8.0K  604M   1% /dev/shm
+cgroup           12K     0   12K   0% /sys/fs/cgroup
+tmpfs           200M  8.0K  200M   1% /run/user/1000
+/dev/sdb         93M  1.6M   85M   2% /mnt/archive
+```

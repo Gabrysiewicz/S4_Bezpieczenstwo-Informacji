@@ -327,3 +327,8 @@ Crontab:
 0 22 * * 1-4 sh ~/.scripts/script_append.sh
 0 22 * * 5 sh ~/.scripts/script_total.sh
 ```
+
+<h3> P.7.7. W sprawozdaniu umieść treść niezbędnych skryptów, zrzuty ekranu prezentujące
+działanie opracowanego rozwiązania. Wyjaśnij, dlaczego niniejsza kopia jest kopią
+przyrostową. Jeśli w archiwum widoczne są wszystkie pliki i katalogi (tak jak w kopii
+pełnej) udowodnij, że jest to kopia przyrostowa. </h3>

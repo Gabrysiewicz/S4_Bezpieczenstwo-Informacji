@@ -279,10 +279,40 @@ elif [[ $avail -gt 3000 ]]; then
 fi
 
 ```
+Script przyrostowy:
+```
+#!/bin/bash
+avail=$(sudo df | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}' | awk '{t=length($0)}END{print substr($0,0,t-1)}')
+avail_w_bytes=$(sudo df -h | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}')
+file_date=$(date +"%F-%H-%M-%S")
+USER=guest
+ARCHIVE="/mnt/archive/archive_"$file_date".tar.gz"
+if [[ $avail -le 3000 ]]; then
+	echo -e "\033[0;33mFree space: "$avail_w_bytes" (<30MB)"
+	oldest_archive=$(ls -lh --sort=time /mnt/archive | grep "archive" | awk -F ' ' '{print $NF}' | awk 'END{print}')
+	echo -e "The following file will be deleted: "/mnt/archive/$oldest_archive"\033[0m"
+	sudo rm /mnt/archive/$oldest_archive
+	echo -e "\033[0;31m"/mnt/archive/$oldest_archive" has been deleted\033[0m"
+	avail_w_bytes=$(sudo df -h | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}')
+	echo -e "\033[0;32mThere is "$avail_w_bytes" of free space \033[0m"
+	sudo tar -czf $ARCHIVE ~
+	sudo chmod 600 $ARCHIVE
+	sudo chown $USER $ARCHIVE
+	echo -e "\033[0;32mNew archive has been created. \033[0m"
+elif [[ $avail -gt 3000 ]]; then
+	avail_w_bytes=$(sudo df -h | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}')
+	echo -e "\033[0;32mThere is "$avail_w_bytes" of free space \033[0m"
+	newest_archive=$(ls -lh --sort=time /mnt/archive | grep "archive" | awk -F ' ' '{print $NF}' | awk 'NR==1{print}')
+	sudo tar --append -file=$newest_archive ~
+	sudo chmod 600 $ARCHIVE
+	sudo chown $USER $ARCHIVE
+	echo -e "\033[0;32mNew archive has been created. \033[0m"
+fi
+```
 
 Przykład wywołania:
 ```
-➜  ~ ./script_df.sh  
+➜  ~ ./script_total.sh  
 Free space: 2.9M (<30MB)
 The following file will be deleted: /mnt/archive/archive_2022-05-29-22-11-27.tar.gz
 /mnt/archive/archive_2022-05-29-22-11-27.tar.gz has been deleted
@@ -294,5 +324,6 @@ New archive has been created.
 
 Crontab:
 ```
-0 22 * * * sh ~/.scripts/script_df.sh
+0 22 * * 1-4 sh ~/.scripts/script_append.sh
+0 22 * * 5 sh ~/.scripts/script_total.sh
 ```

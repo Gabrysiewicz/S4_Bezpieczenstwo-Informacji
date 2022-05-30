@@ -249,6 +249,7 @@ tmpfs           200M  8.0K  200M   1% /run/user/1000
 ```
 
 Script:
+
 ```
 #!/bin/bash
 avail=$(sudo df | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}' | awk '{t=length($0)}END{print substr($0,0,t-1)}')
@@ -279,6 +280,7 @@ elif [[ $avail -gt 3000 ]]; then
 fi
 
 ```
+
 Script przyrostowy:
 ```
 #!/bin/bash

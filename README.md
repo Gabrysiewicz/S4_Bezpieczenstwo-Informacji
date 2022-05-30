@@ -444,3 +444,5 @@ Crontab
 0 22 * * 1-5 sh ~/.scripts/script_azure_append.sh
 0 22 * * 6 sh ~/.scripts/script_azure_full.sh
 ```
+
+GitHub: https://github.com/Gabrysiewicz/BI-Szyfry/tree/copy

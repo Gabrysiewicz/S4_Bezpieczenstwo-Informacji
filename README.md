@@ -326,8 +326,8 @@ New archive has been created.
 
 Crontab:
 ```
-0 22 * * 1-4 sh ~/.scripts/script_append.sh
-0 22 * * 5 sh ~/.scripts/script_total.sh
+0 22 * * 1-4 root /home/guest/.scripts/script_append.sh
+0 22 * * 5 root /home/guest/.scripts/script_total.sh
 ```
 
 <h3> P.7.7. W sprawozdaniu umieść treść niezbędnych skryptów, zrzuty ekranu prezentujące
@@ -441,8 +441,8 @@ Archive has been send to remote host.
 
 Crontab
 ```
-0 22 * * 1-5 sh ~/.scripts/script_azure_append.sh
-0 22 * * 6 sh ~/.scripts/script_azure_full.sh
+0 22 * * 1-5 root /home/guest/.scripts/script_azure_append.sh
+0 22 * * 6   root /home/guest/.scripts/script_azure_full.sh
 ```
 
 GitHub: https://github.com/Gabrysiewicz/BI-Szyfry/tree/copy

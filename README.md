@@ -433,7 +433,7 @@ There is 85M of free space
 tar: Removing leading `/' from member names
 tar: /home/guest/.cache/keyring-DQFWM1/control: socket ignored
 New archive has been created. 
-archive_2022-05-30-10-53-25.tar.gz                                                                           100%   51MB 660.4KB/s   01:19    
+archive_2022-05-30-10-53-25.tar.gz                                       100%   51MB 660.4KB/s   01:19    
 Archive has been send to remote host. 
 ```
 

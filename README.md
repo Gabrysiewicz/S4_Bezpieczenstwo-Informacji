@@ -332,3 +332,113 @@ Crontab:
 działanie opracowanego rozwiązania. Wyjaśnij, dlaczego niniejsza kopia jest kopią
 przyrostową. Jeśli w archiwum widoczne są wszystkie pliki i katalogi (tak jak w kopii
 pełnej) udowodnij, że jest to kopia przyrostowa. </h3>
+
+Zmodyfikowany skrypt pod azure (kopia pełna):
+```
+#!/bin/bash
+avail=$(sudo df | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}' | awk '{t=length($0)}END{print substr($0,0,t-1)}')
+avail_w_bytes=$(sudo df -h | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}')
+file_date=$(date +"%F-%H-%M-%S")
+USER=guest
+ARCHIVE="/mnt/archive/archive_"$file_date".tar.gz"
+PRIV_KEY=/home/guest/.ssh/azure_rsa
+if [[ $avail -le 3000 ]]; then
+	echo -e "\033[0;33mFree space: "$avail_w_bytes" (<30MB)"
+	oldest_archive=$(ls -lh --sort=time /mnt/archive | grep "archive" | awk -F ' ' '{print $NF}' | awk 'END{print}')
+	echo -e "The following file will be deleted: "/mnt/archive/$oldest_archive"\033[0m"
+	sudo rm /mnt/archive/$oldest_archive
+	echo -e "\033[0;31m"/mnt/archive/$oldest_archive" has been deleted\033[0m"
+	avail_w_bytes=$(sudo df -h | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}')
+	echo -e "\033[0;32mThere is "$avail_w_bytes" of free space \033[0m"
+
+	sudo tar -czf $ARCHIVE ~
+	sudo chmod 600 $ARCHIVE
+	sudo chown $USER $ARCHIVE
+	echo -e "\033[0;32mNew archive has been created. \033[0m"
+
+	sudo scp -i $PRIV_KEY $ARCHIVE Davy@20.216.30.22:/mnt/archive
+	echo -e "\033[0;32mArchive has been send to remote host. \033[0m"
+	sudo rm $ARCHIVE
+elif [[ $avail -gt 3000 ]]; then
+	avail_w_bytes=$(sudo df -h | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}')
+	echo -e "\033[0;32mThere is "$avail_w_bytes" of free space \033[0m"
+
+	sudo tar -czf $ARCHIVE ~
+	sudo chmod 600 $ARCHIVE
+	sudo chown $USER $ARCHIVE
+	echo -e "\033[0;32mNew archive has been created. \033[0m"
+
+	sudo scp -i $PRIV_KEY $ARCHIVE Davy@20.216.30.22:/mnt/archive
+	echo -e "\033[0;32mArchive has been send to remote host. \033[0m"
+	sudo rm $ARCHIVE
+fi
+```
+
+Kopia przyrostowa:
+```
+#!/bin/bash
+avail=$(sudo df | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}' | awk '{t=length($0)}END{print substr($0,0,t-1)}')
+avail_w_bytes=$(sudo df -h | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}')
+file_date=$(date +"%F-%H-%M-%S")
+USER=guest
+ARCHIVE="/mnt/archive/archive_"$file_date".tar.gz"
+PRIV_KEY=/home/guest/.ssh/azure_rsa
+if [[ $avail -le 3000 ]]; then
+	echo -e "\033[0;33mFree space: "$avail_w_bytes" (<30MB)"
+	oldest_archive=$(ls -lh --sort=time /mnt/archive | grep "archive" | awk -F ' ' '{print $NF}' | awk 'END{print}')
+	echo -e "The following file will be deleted: "/mnt/archive/$oldest_archive"\033[0m"
+	sudo rm /mnt/archive/$oldest_archive
+	echo -e "\033[0;31m"/mnt/archive/$oldest_archive" has been deleted\033[0m"
+	avail_w_bytes=$(sudo df -h | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}')
+	echo -e "\033[0;32mThere is "$avail_w_bytes" of free space \033[0m"
+
+	sudo tar -czf $ARCHIVE ~
+	sudo chmod 600 $ARCHIVE
+	sudo chown $USER $ARCHIVE
+	echo -e "\033[0;32mNew archive has been created. \033[0m"
+
+	sudo scp -i $PRIV_KEY $ARCHIVE Davy@20.216.30.22:/mnt/archive
+	echo -e "\033[0;32mArchive has been send to remote host. \033[0m"
+	sudo rm $ARCHIVE
+elif [[ $avail -gt 3000 ]]; then
+	avail_w_bytes=$(sudo df -h | grep "/mnt/archive" | awk -F ' ' '{print $(NF-2)}')
+	echo -e "\033[0;32mThere is "$avail_w_bytes" of free space \033[0m"
+	newest_archive=$(ls -lh --sort=time /mnt/archive | grep "archive" | awk -F ' ' '{print $NF}' | awk 'NR==1{print}')
+	if [[ -z $newest_archive ]]; then
+		echo -e "\033[0;33mThere are no other archives yet. \n New archive will be created \033[0m"
+		sudo tar -czf $ARCHIVE ~
+		sudo chmod 600 $ARCHIVE
+		sudo chown $USER $ARCHIVE
+
+		sudo scp -i $PRIV_KEY $ARCHIVE Davy@20.216.30.22:/mnt/archive
+		echo -e "\033[0;32mArchive has been send to remote host. \033[0m"
+	else
+		sudo tar --append --file=$newest_archive ~
+		echo -e "\033[0;32mArchive has been modified. \033[0m"
+
+		sudo scp -i $PRIV_KEY $newest_archive Davy@20.216.30.22:/mnt/archive
+		echo -e "\033[0;32mArchive has been send to remote host. \033[0m"
+	fi
+fi
+```
+
+Skrypt działa podobnie do poprzedniego tyle, że po utworzeniu archiwum wysyła je na zdalny komputer i usuwa je z komputera lokalnego(kopia_pełna), w przypadku przyrostowej dopisuje zmiany do najświerzszego archiwum i wysyła je na zdalny komputer.
+Gdyby starczyło czasu należało by:
+- nieco bardziej pozabezpieczać skrypt
+- dodać na zdalnym hoscie skrypt który np. co jakiś czas sprawdzał dostępne miejsce w katalogu /mnt/archive i gdy dostępna przestrzeń spadła by poniżej np. 10% usuwałby najstarsze archiwum analogicznie to powyższego skryptu
+
+Przykład działanie skryptu:
+```
+There is 85M of free space 
+tar: Removing leading `/' from member names
+tar: /home/guest/.cache/keyring-DQFWM1/control: socket ignored
+New archive has been created. 
+archive_2022-05-30-10-53-25.tar.gz                                                                           100%   51MB 660.4KB/s   01:19    
+Archive has been send to remote host. 
+```
+
+Crontab
+```
+0 22 * * 1-5 sh ~/.scripts/script_azure_append.sh
+0 22 * * 6 sh ~/.scripts/script_azure_full.sh
+```

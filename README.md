@@ -3,131 +3,6 @@
 <h3> Zadanie 8.1. Tworzenie macierzy RAID1 </h3>
 
 ```
-➜  ~ sudo ls /dev/sd*
-/dev/sda  /dev/sda1  /dev/sda2	/dev/sda3  /dev/sdb  /dev/sdc
-➜  ~ sudo fdisk -l
-Disk /dev/sda: 128 GiB, 137438953472 bytes, 268435456 sectors
-Disk model: VBOX HARDDISK   
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: dos
-Disk identifier: 0xdc7cf971
-
-Device     Boot     Start       End   Sectors Size Id Type
-/dev/sda1            2048 125831167 125829120  60G 83 Linux
-/dev/sda2       125831168 142608383  16777216   8G 82 Linux swap / Solaris
-/dev/sda3       142608384 268435455 125827072  60G 83 Linux
-
-
-Disk /dev/sdb: 100 MiB, 104857600 bytes, 204800 sectors
-Disk model: VBOX HARDDISK   
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-
-
-Disk /dev/sdc: 100 MiB, 104857600 bytes, 204800 sectors
-Disk model: VBOX HARDDISK   
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-
-➜  ~ sudo mdadm --create /dev/md1 --level=raid1 --raid-devices=2 /dev/sdb /dev/sdc  
-mdadm: Note: this array has metadata at the start and
-    may not be suitable as a boot device.  If you plan to
-    store '/boot' on this device please ensure that
-    your boot-loader understands md/v1.x metadata, or use
-    --metadata=0.90
-Continue creating array? 
-Continue creating array? (y/n) y
-mdadm: Defaulting to version 1.2 metadata
-mdadm: array /dev/md1 started.
-
-➜  ~ sudo mdadm --query --detail /dev/md1
-/dev/md1:
-           Version : 1.2
-     Creation Time : Thu Jun  9 21:08:09 2022
-        Raid Level : raid1
-        Array Size : 101376 (99.00 MiB 103.81 MB)
-     Used Dev Size : 101376 (99.00 MiB 103.81 MB)
-      Raid Devices : 2
-     Total Devices : 2
-       Persistence : Superblock is persistent
-
-       Update Time : Thu Jun  9 21:08:10 2022
-             State : clean 
-    Active Devices : 2
-   Working Devices : 2
-    Failed Devices : 0
-     Spare Devices : 0
-
-Consistency Policy : resync
-
-              Name : Neo:1  (local to host Neo)
-              UUID : 78167d4c:81e269e4:092bbf83:df7b5d22
-            Events : 18
-
-    Number   Major   Minor   RaidDevice State
-       0       8       16        0      active sync   /dev/sdb
-       1       8       32        1      active sync   /dev/sdc
-       
-➜  ~ sudo mkfs.ext4 /dev/md1
-mke2fs 1.44.5 (15-Dec-2018)
-Creating filesystem with 101376 1k blocks and 25376 inodes
-Filesystem UUID: d2b78d13-37ff-4408-98eb-73c7a29617ec
-Superblock backups stored on blocks: 
-	8193, 24577, 40961, 57345, 73729
-
-Allocating group tables: done                            
-Writing inode tables: done                            
-Creating journal (4096 blocks): done
-Writing superblocks and filesystem accounting information: done 
-
-➜  ~ sudo cp -a Directory1 Directory2  
-➜  ~ df -h 
-System plików  rozm. użyte dost. %uż. zamont. na
-udev            954M     0  954M   0% /dev
-tmpfs           199M  2,3M  197M   2% /run
-/dev/sda1        59G  7,0G   49G  13% /
-tmpfs           5,0M  8,0K  5,0M   1% /run/lock
-tmpfs           2,0G     0  2,0G   0% /dev/shm
-/dev/sda3        59G  259M   56G   1% /home
-cgroup           12K     0   12K   0% /sys/fs/cgroup
-tmpfs           199M   12K  199M   1% /run/user/1000
-
-➜  ~ sudo mdadm --detail /dev/md127
-/dev/md127:
-           Version : 1.2
-     Creation Time : Thu Jun  9 21:08:09 2022
-        Raid Level : raid1
-        Array Size : 101376 (99.00 MiB 103.81 MB)
-     Used Dev Size : 101376 (99.00 MiB 103.81 MB)
-      Raid Devices : 2
-     Total Devices : 3
-       Persistence : Superblock is persistent
-
-       Update Time : Thu Jun  9 23:09:03 2022
-             State : clean 
-    Active Devices : 2
-   Working Devices : 3
-    Failed Devices : 0
-     Spare Devices : 1
-
-Consistency Policy : resync
-
-              Name : Neo:1  (local to host Neo)
-              UUID : 78167d4c:81e269e4:092bbf83:df7b5d22
-            Events : 21
-
-    Number   Major   Minor   RaidDevice State
-       0       8       16        0      active sync   /dev/sdb
-       1       8       32        1      active sync   /dev/sdc
-
-       2       8       48        -      spare   /dev/sdd
-```
-
-```
 ➜  ~ sudo mdadm -E /dev/sdb
 mdadm: No md superblock detected on /dev/sdb.
 ➜  ~ sudo mdadm -E /dev/sdc
@@ -338,4 +213,48 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet mauris e
 UUID=aedc9d01-f402-4ee7-be72-0a3b9289df6d /mnt/raid1 defaults 0 0
 
 mdadm --detail --scan --verbose >> /etc/mdadm.conf
+
+root@Neo:/home/kytl# mdadm --detail /dev/md127 
+/dev/md127:
+           Version : 1.2
+     Creation Time : Fri Jun 10 00:28:50 2022
+        Raid Level : raid1
+        Array Size : 100352 (98.00 MiB 102.76 MB)
+     Used Dev Size : 100352 (98.00 MiB 102.76 MB)
+      Raid Devices : 2
+     Total Devices : 2
+       Persistence : Superblock is persistent
+
+       Update Time : Fri Jun 10 00:56:15 2022
+             State : clean 
+    Active Devices : 2
+   Working Devices : 2
+    Failed Devices : 0
+     Spare Devices : 0
+
+Consistency Policy : resync
+
+              Name : Neo:0  (local to host Neo)
+              UUID : f3c49a5e:b068219a:ac578b9c:eb48f245
+            Events : 18
+
+    Number   Major   Minor   RaidDevice State
+       0       8       17        0      active sync   /dev/sdb1
+       1       8       33        1      active sync   /dev/sdc1
+       
+➜  ~ sudo mount -av      
+/                        : ignored
+/home                    : already mounted
+swap                     : ignored
+/mnt/raid1               : successfully mounted
+
+root@Neo:/home/kytl# mdadm --detail --scan --verbose >> /etc/mdadm.conf
+root@Neo:/home/kytl# cat /etc/mdadm
+mdadm/      mdadm.conf  
+root@Neo:/home/kytl# cat /etc/mdadm.conf 
+ARRAY /dev/md0 level=raid1 num-devices=2 metadata=1.2 name=Neo:0 UUID=f3c49a5e:b068219a:ac578b9c:eb48f245
+   devices=/dev/sdb1,/dev/sdc1
+ARRAY /dev/md/Neo:0 level=raid1 num-devices=2 metadata=1.2 name=Neo:0 UUID=f3c49a5e:b068219a:ac578b9c:eb48f245
+   devices=/dev/sdb1,/dev/sdc1
+
 ```

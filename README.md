@@ -212,11 +212,11 @@ See the Release Notes for this release at:
    https://openvpn.net/vpn-server-resources/release-notes/
 ```
 <p align='center'>
-   <img src='https://github.com/Gabrysiewicz/BI-Szyfry/blob/openVPN/1.jpg'  width='400' height='640'>
+   <img src='https://github.com/Gabrysiewicz/BI-Szyfry/blob/openVPN/1.jpg'  width='432' height='864'>
 </p>
 <p align='center'>
-   <img src='https://github.com/Gabrysiewicz/BI-Szyfry/blob/openVPN/2.jpg'  width='400' height='640'>
+   <img src='https://github.com/Gabrysiewicz/BI-Szyfry/blob/openVPN/2.jpg'  width='432' height='864'>
 </p>
 <p align='center'>
-   <img src='https://github.com/Gabrysiewicz/BI-Szyfry/blob/openVPN/3.jpg'  width='400' height='640'>
+   <img src='https://github.com/Gabrysiewicz/BI-Szyfry/blob/openVPN/3.jpg'  width='432' height='864'>
 </p>

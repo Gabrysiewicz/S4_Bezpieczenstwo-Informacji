@@ -211,3 +211,12 @@ Client UI: https://20.223.232.59:943/
 See the Release Notes for this release at:
    https://openvpn.net/vpn-server-resources/release-notes/
 ```
+<p align='center'>
+   <img src='https://github.com/Gabrysiewicz/BI-Szyfry/blob/openVPN/1.jpg'
+</p>
+<p align='center'>
+   <img src='https://github.com/Gabrysiewicz/BI-Szyfry/blob/openVPN/2.jpg'
+</p>
+<p align='center'>
+   <img src='https://github.com/Gabrysiewicz/BI-Szyfry/blob/openVPN/3.jpg'
+</p>

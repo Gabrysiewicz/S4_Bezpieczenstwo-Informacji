@@ -1,6 +1,10 @@
 # Bezpieczeństwo informacji - Szyfry
-Należy stworzyć katalog 'passwords' w tym samym katalogu co program
-W katalogu 'passwords' będą przechowywane rezultaty programów
+
+Repozytorium z przedmiotu `Bezpieczeństwo informacji`
+
+W katalogu w którym znajduje się program należy utworzyć katalog `passwords`.
+W katalogu `passwords` będą przechowywane rezultaty programów -> wygeberowane hasła
+
 | File  | Size | State | Desc |
 | ------------- | ------------- | ------------- | ------------- |
 | 3_32_126_passwd.txt | 3,2M | + | 3 znakowe od ASCII 32 do 126 |
@@ -10,7 +14,7 @@ W katalogu 'passwords' będą przechowywane rezultaty programów
 | 5_32_126_passwd.txt | +20G | -1 | 5 znakowe od ASCII 32 do 126 |
 | 5_97_122_passwd.txt | 68M | = | 5 znakowe od ASCII 97 do 122 |
 | 6_97_122_passwd.txt |  239M  | = | 6 znakowe od ASCII 97 do 122 |
-| 6_32_126_passwd.txt |  ~4T  | ??? | 6 znakowe od ASCII 32 do 126 |
+| 6_32_126_passwd.txt |  ~4T  | ? | 6 znakowe od ASCII 32 do 126 |
 | deszczowiec.txt | 3,0K | + | Hasła deszczowca od 1.01.1970 do 4.04.2022 ze znanymi 2 bajtami |
 | deszczowiec_week_2.txt | 312B | + | Hasła deszczowca od 28.03.2022 do 4.04.2022 ze znanymi 2 bajtami|
 | deszczowiec_week_3.txt | 37B | + | Hasła deszczowca od 28.03.2022 do 4.04.2022 ze znanymi 3 bajtami |
@@ -20,9 +24,9 @@ W katalogu 'passwords' będą przechowywane rezultaty programów
 
 | Sign | Desc |
 | ------------- | ------------ |
-| - | nie ma go tutaj, plik jest za duży |
-| = | nie mo go tutaj, plik jest za duży dla github, należy skorzystać z programu i go wygenerwoać |
-| + | jest tutaj |
-| -1 | za duży, można go wygenerować przy pomocy programu |
-| ??? | Potężny plik - robi wrażenie |
+| - | nie ma go w repozytorium, plik jest za duży |
+| = | nie mo go w repozytorium, plik jest za duży dla github, można go wygenerować programem |
+| + | jest w repozytorium |
+| -1 | plik waży dużo, można go wygenerować przy pomocy programu |
+| ? | Potężny plik - robi wrażenie |
 
